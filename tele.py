@@ -86,7 +86,7 @@ def addUsersToChannel(client, users, channel):
         finally:
             print('adding users to channel  ')
         if count >= 200 :
-            sleep(60)
+            sleep(120)
             count = 0
         count = count + 1
     return True
