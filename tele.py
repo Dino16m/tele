@@ -13,7 +13,7 @@
 #my channel = 'UdaraTV'
 
 
-from telethon import TelegramClient
+from telethon.sync import TelegramClient
 from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.tl.functions.contacts import ResolveUsernameRequest
 from telethon.tl.functions.channels import GetAdminLogRequest
@@ -45,14 +45,10 @@ def login(name, api_id, api_hash):
     #     client.sign_in(phone, input('Enter the code: '))
     return client
     
-async def getChannels(client):
-    # channels = {d.entity.username: d.entity
-    #     for d in client.get_dialogs()
-    #     if d.is_channel}
-    channels = {}
-    async for d in client.get_dialogs():
-        if d.is_channel():
-           channels[d.entity.username] = d.entity
+def getChannels(client):
+    channels = {d.entity.username: d.entity
+        for d in client.get_dialogs()
+            if d.is_channel}
     return channels
     
 def getChannelParticipants(client, channel):
@@ -105,8 +101,8 @@ def getUsersFromCsv(filePath):
             
     return users
 
-async def printChannels(channels):
-    async for channel in channels:
+def printChannels(channels):
+    for channel in channels:
         print(channel)
     return
 
@@ -122,8 +118,8 @@ def getSomeUsers(range, users):
     
 
             
-async def getAllChannelUsers(client, channels):
-    async for channel in channels:
+def getAllChannelUsers(client, channels):
+    for channel in channels:
         if channel == None:
             continue
         users = getChannelParticipants(client, channel)
@@ -131,10 +127,10 @@ async def getAllChannelUsers(client, channels):
     return True
         
     
-async def work(people):
+def work(people):
     peters = people
     for peter in peters:
-       async with TelegramClient(peter, api_id, api_hash) as client:
+        with TelegramClient(peter, api_id, api_hash) as client:
             client.send_message('me', 'Hello, myself!')
             channels = getChannels(client)
             printChannels(channels)
@@ -145,9 +141,5 @@ async def work(people):
             #addUsersToChannel(client, users, channels['webtrading4'])
             print('peter '+peter+' done and dusted')
     
-
-    
-
-    
-                
-    
+peters = ['akira','benjamin', 'chukwu', 'ibe', 'james', 'john', 'kwame', 'mary', 'melik', 'mike', 'mike4', 'mike9','suo','sampson' ]
+work(peters)
