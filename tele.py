@@ -126,6 +126,17 @@ def getAllChannelUsers(client, channels):
         addUsersToCsv(users, 'users.txt')
     return True
         
+def add(peters):
+    peters = people
+    for peter in peters:
+        with TelegramClient(peter, api_id, api_hash) as client:
+            client.send_message('me', 'Hello, myself!')
+            channels = getChannels(client)
+            users = getUsersFromCsv('users.txt')
+            #users = getChannelParticipants(client, channels['dualminecom'])
+            #addUsersToCsv(users, 'users.txt')
+            addUsersToChannel(client, users, channels['webtrading4'])
+            print('peter '+peter+' done and dusted adding')
     
 def work(people):
     peters = people
@@ -139,7 +150,15 @@ def work(people):
             #users = getChannelParticipants(client, channels['dualminecom'])
             #addUsersToCsv(users, 'users.txt')
             #addUsersToChannel(client, users, channels['webtrading4'])
-            print('peter '+peter+' done and dusted')
+            print('peter '+peter+' done and dusted writing')
     
 peters = ['akira','benjamin', 'chukwu', 'ibe', 'james', 'john', 'kwame', 'mary', 'melik', 'mike', 'mike4', 'mike9','suo','sampson' ]
 work(peters)
+add(peters)
+
+
+
+
+
+
+
