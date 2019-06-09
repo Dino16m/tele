@@ -86,9 +86,9 @@ def addUsersToChannel(client, users, channel):
             print(e.args)
             error = True
         finally:
-	        if not error == True:
-            	print('adding users to channel  ')
-	        error = False
+            if not error == True:
+                print('adding users to channel')
+            error = False
         if count >= 50 :
             sleep(random.randint(10,61)*2)
             count = 0
