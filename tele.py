@@ -12,7 +12,7 @@
 #test_channel= 'webtrading4'
 #my channel = 'UdaraTV'
 
-
+import random
 from telethon.sync import TelegramClient
 from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.tl.functions.contacts import ResolveUsernameRequest
@@ -74,6 +74,7 @@ def addUsersToCsv(users, filename):
 def addUsersToChannel(client, users, channel):
     channelEntity = InputPeerChannel(channel.id, channel.access_hash)
     count = 0
+    error = False
     for user in users:
         if type(user)==str:
             userToAdd = client.get_input_entity(user)
@@ -83,10 +84,13 @@ def addUsersToChannel(client, users, channel):
            client(InviteToChannelRequest(channelEntity,[userToAdd]))
         except Exception as e:
             print(e.args)
+	    error = True
         finally:
-            print('adding users to channel  ')
-        if count >= 200 :
-            sleep(60)
+	    if not error == True:
+            	print('adding users to channel  ')
+	    error = False
+        if count >= 50 :
+            sleep(random.randint(10,61)*2)
             count = 0
         count = count + 1
     return True
@@ -127,7 +131,7 @@ def getAllChannelUsers(client, channels):
     return True
         
 def add(peters):
-    peters = people
+    #peters = people
     for peter in peters:
         with TelegramClient(peter, api_id, api_hash) as client:
             client.send_message('me', 'Hello, myself!')
@@ -135,11 +139,11 @@ def add(peters):
             users = getUsersFromCsv('users.txt')
             #users = getChannelParticipants(client, channels['dualminecom'])
             #addUsersToCsv(users, 'users.txt')
-            addUsersToChannel(client, users, channels['webtrading4'])
+            addUsersToChannel(client, users, channels['killindem'])
             print('peter '+peter+' done and dusted adding')
     
 def work(people):
-    peters = people
+    #peters = people
     for peter in peters:
         with TelegramClient(peter, api_id, api_hash) as client:
             client.send_message('me', 'Hello, myself!')
@@ -153,7 +157,7 @@ def work(people):
             print('peter '+peter+' done and dusted writing')
     
 peters = ['akira','benjamin', 'chukwu', 'ibe', 'james', 'john', 'kwame', 'mary', 'melik', 'mike', 'mike4', 'mike9','suo','sampson' ]
-work(peters)
+#work(peters)
 add(peters)
 
 
