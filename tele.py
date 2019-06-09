@@ -13,7 +13,7 @@
 #my channel = 'UdaraTV'
 
 
-from telethon.sync import TelegramClient
+from telethon import TelegramClient
 from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.tl.functions.contacts import ResolveUsernameRequest
 from telethon.tl.functions.channels import GetAdminLogRequest
@@ -30,12 +30,12 @@ from telethon.tl.functions.channels import InviteToChannelRequest
 
 test_channel= 'webtrading4'
 my_channel = 'UdaraTV'
-api_id = 764531
-api_hash = 'a41f8549c7dd1341613de3569f9796cb'
+#api_id = 764531
+#api_hash = 'a41f8549c7dd1341613de3569f9796cb'
 
 #peters'
-#api_id = 872129
-#api_hash = '1390959115b339a8e20294e3591a8b41'
+api_id = 872129
+api_hash = '1390959115b339a8e20294e3591a8b41'
 #to_hack = ['binanceexchange', 'LitecoinDiamonD', 'VietnamBitcoinWorld_2' ]
 
 def login(name, api_id, api_hash):
@@ -45,10 +45,14 @@ def login(name, api_id, api_hash):
     #     client.sign_in(phone, input('Enter the code: '))
     return client
     
-def getChannels(client):
-    channels = {d.entity.username: d.entity
-        for d in client.get_dialogs()
-        if d.is_channel}
+async def getChannels(client):
+    # channels = {d.entity.username: d.entity
+    #     for d in client.get_dialogs()
+    #     if d.is_channel}
+    channels = {}
+    async for d in client.get_dialogs():
+        if d.is_channel():
+           channels[d.entity.username] = d.entity
     return channels
     
 def getChannelParticipants(client, channel):
@@ -73,6 +77,7 @@ def addUsersToCsv(users, filename):
     
 def addUsersToChannel(client, users, channel):
     channelEntity = InputPeerChannel(channel.id, channel.access_hash)
+    count = 0
     for user in users:
         if type(user)==str:
             userToAdd = client.get_input_entity(user)
@@ -83,8 +88,11 @@ def addUsersToChannel(client, users, channel):
         except Exception as e:
             print(e.args)
         finally:
-            
             print('adding users to channel  ')
+        if count >= 200 :
+            sleep(60)
+            count = 0
+        count = count + 1
     return True
     
 def getUsersFromCsv(filePath):
@@ -97,8 +105,8 @@ def getUsersFromCsv(filePath):
             
     return users
 
-def printChannels(channels):
-    for channel in channels:
+async def printChannels(channels):
+    async for channel in channels:
         print(channel)
     return
 
@@ -114,8 +122,8 @@ def getSomeUsers(range, users):
     
 
             
-def getAllChannelUsers(client, channels):
-    for channel in channels:
+async def getAllChannelUsers(client, channels):
+    async for channel in channels:
         if channel == None:
             continue
         users = getChannelParticipants(client, channel)
@@ -123,13 +131,10 @@ def getAllChannelUsers(client, channels):
     return True
         
     
-        
-    
-    
-def work():
-    peters = [ 'akira']
+async def work(people):
+    peters = people
     for peter in peters:
-        with TelegramClient(peter, api_id, api_hash) as client:
+       async with TelegramClient(peter, api_id, api_hash) as client:
             client.send_message('me', 'Hello, myself!')
             channels = getChannels(client)
             printChannels(channels)
@@ -137,12 +142,12 @@ def work():
             getAllChannelUsers(client, channels)
             #users = getChannelParticipants(client, channels['dualminecom'])
             #addUsersToCsv(users, 'users.txt')
-            addUsersToChannel(client, users, channels['webtrading4'])
+            #addUsersToChannel(client, users, channels['webtrading4'])
             print('peter '+peter+' done and dusted')
     
-work()
+
     
-    
+
     
                 
     
