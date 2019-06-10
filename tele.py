@@ -70,14 +70,17 @@ def addUsersToCsv(users, filename):
         file.write('\n')
     file.close()
     return True
-    
+        
 def addUsersToChannel(client, users, channel):
     channelEntity = InputPeerChannel(channel.id, channel.access_hash)
     count = 0
     error = False
     for user in users:
         if type(user)==str:
-            userToAdd = client.get_input_entity(user)
+            try:
+                userToAdd = client.get_input_entity(user)
+            except Exception:
+                continue
         else:
             userToAdd = client.get_input_entity(user.id)
         try:
@@ -159,7 +162,7 @@ def work(people):
     
 peters = ['akira','benjamin', 'chukwu', 'ibe', 'james', 'john', 'kwame', 'mary', 'melik', 'mike', 'mike4', 'mike9','suo','sampson' ]
 #work(peters)
-add(peters)
+add(random.shuffle(peters))
 
 
 
