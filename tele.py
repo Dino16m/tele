@@ -162,7 +162,7 @@ def work(people):
     
 #peters = ['akira','benjamin', 'chukwu', 'ibe', 'james', 'john', 'kwame', 'mary', 'melik', 'mike', 'mike4', 'mike9','suo','sampson' ]
 #work(peters)
-random.shuffle(peters)
+#random.shuffle(peters)
 add(['dynasties'])
 
 
