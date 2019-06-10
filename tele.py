@@ -143,7 +143,7 @@ def add(peters):
             users = getUsersFromCsv('users.txt')
             #users = getChannelParticipants(client, channels['dualminecom'])
             #addUsersToCsv(users, 'users.txt')
-            addUsersToChannel(client, users, channels['webtrading4'])
+            addUsersToChannel(client, users, channels['killindem'])
             print('peter '+peter+' done and dusted adding')
     
 def work(people):
