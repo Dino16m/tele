@@ -30,12 +30,12 @@ from telethon.tl.functions.channels import InviteToChannelRequest
 
 test_channel= 'webtrading4'
 my_channel = 'UdaraTV'
-api_id = 764531
-api_hash = 'a41f8549c7dd1341613de3569f9796cb'
+#api_id = 764531
+#api_hash = 'a41f8549c7dd1341613de3569f9796cb'
 
 #peters'
-#api_id = 872129
-#api_hash = '1390959115b339a8e20294e3591a8b41'
+api_id = 872129
+api_hash = '1390959115b339a8e20294e3591a8b41'
 #to_hack = ['binanceexchange', 'LitecoinDiamonD', 'VietnamBitcoinWorld_2' ]
 
 def login(name, api_id, api_hash):
@@ -141,9 +141,12 @@ def add(peters):
             client.send_message('me', 'Hello, myself!')
             channels = getChannels(client)
             users = getUsersFromCsv('users.txt')
+            #users.reverse()
+            print( len(users))
+            users = users[4100:5400]
             #users = getChannelParticipants(client, channels['dualminecom'])
             #addUsersToCsv(users, 'users.txt')
-            addUsersToChannel(client, users, channels['killindem'])
+            addUsersToChannel(client, users, channels['webtrading4'])
             print('peter '+peter+' done and dusted adding')
     
 def work(people):
@@ -160,10 +163,10 @@ def work(people):
             #addUsersToChannel(client, users, channels['webtrading4'])
             print('peter '+peter+' done and dusted writing')
     
-#peters = ['akira','benjamin', 'chukwu', 'ibe', 'james', 'john', 'kwame', 'mary', 'melik', 'mike', 'mike4', 'mike9','suo','sampson' ]
+peters = ['akira','benjamin', 'chukwu', 'ibe', 'james', 'john', 'kwame', 'mary', 'melik', 'mike', 'mike4', 'mike9','suo','sampson' ]
 #work(peters)
-#random.shuffle(peters)
-add(['dynasties'])
+random.shuffle(peters)
+add(peters)
 
 
 
