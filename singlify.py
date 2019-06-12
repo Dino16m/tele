@@ -9,7 +9,7 @@ def readFromFile(filename):
             list.append(line)
         file.close()
         os.rename(filename, 'old_'+filename)
-    return list
+        return list
     
 def writeToFile(items, filename):
     file = open(filename, "a")
