@@ -128,7 +128,6 @@ def getAllChannelUsers(client, channels):
             continue
         users = getChannelParticipants(client, channel)
     users = removeOldUsers(users)
-    sleep(30)
     addUsersToCsv(users, 'users.txt')
     return True
     
