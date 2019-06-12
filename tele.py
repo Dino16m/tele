@@ -25,7 +25,8 @@ from telethon.tl.types import ChannelAdminLogEventsFilter
 from telethon.tl.types import InputUserSelf
 from telethon.tl.types import InputUser
 from telethon.tl.types import InputPeerEmpty, InputPeerChannel, InputPeerUser, PeerUser
-
+from singlify import singlify
+import os
 from telethon.tl.functions.channels import InviteToChannelRequest
 
 test_channel= 'webtrading4'
@@ -38,13 +39,6 @@ api_id = 872129
 api_hash = '1390959115b339a8e20294e3591a8b41'
 #to_hack = ['binanceexchange', 'LitecoinDiamonD', 'VietnamBitcoinWorld_2' ]
 
-def login(name, api_id, api_hash):
-    client = TelegramClient(name, api_id, api_hash)
-    # if not client.is_user_authorized():
-    #     client.send_code_request(phone)
-    #     client.sign_in(phone, input('Enter the code: '))
-    return client
-    
 def getChannels(client):
     channels = {d.entity.username: d.entity
         for d in client.get_dialogs()
@@ -75,6 +69,7 @@ def addUsersToChannel(client, users, channel):
     channelEntity = InputPeerChannel(channel.id, channel.access_hash)
     count = 0
     error = False
+    success = []
     for user in users:
         if type(user)==str:
             try:
@@ -91,13 +86,14 @@ def addUsersToChannel(client, users, channel):
         finally:
             if not error == True:
                 print('adding users to channel')
+                success.add(user)
             error = False
         if count >= 50 :
             sleep(random.randint(10,61)*2)
             count = 0
             continue
         count = count + 1
-    return True
+    return success
     
 def getUsersFromCsv(filePath):
     file = open(filePath, "r")
@@ -131,26 +127,42 @@ def getAllChannelUsers(client, channels):
         if channel == None:
             continue
         users = getChannelParticipants(client, channel)
-        addUsersToCsv(users, 'users.txt')
+    users = removeOldUsers(users)
+    sleep(30)
+    addUsersToCsv(users, 'users.txt')
     return True
-        
+    
+def removeOldUsers(users):
+    oldUsers = getUsersFromCsv('users.txt')
+    new = []
+    for user in users:
+        if not user in oldUsers:
+            new.append(user)
+    singlifiedNewUsers = singlify(new)
+    os.rename('users.txt', 'removed_user.txt')
+    return singlifiedNewUsers
+    
+    
 def add(peters):
-    #peters = people
+    users = getUsersFromCsv('users.txt')
     for peter in peters:
         with TelegramClient(peter, api_id, api_hash) as client:
             client.send_message('me', 'Hello, myself!')
             channels = getChannels(client)
-            users = getUsersFromCsv('users.txt')
-            #users.reverse()
             print( len(users))
-            users = users[4100:5400]
             #users = getChannelParticipants(client, channels['dualminecom'])
             #addUsersToCsv(users, 'users.txt')
-            addUsersToChannel(client, users, channels['webtrading4'])
+            success = addUsersToChannel(client, users, channels['webtrading4'])
+            users = removeSuccess(success, users)
             print('peter '+peter+' done and dusted adding')
+
+def removeSuccess(success, users):
+    for user in users:
+        if user in success:
+            users.remove(user)
+    return users
     
 def work(people):
-    #peters = people
     for peter in peters:
         with TelegramClient(peter, api_id, api_hash) as client:
             client.send_message('me', 'Hello, myself!')
@@ -164,7 +176,9 @@ def work(people):
             print('peter '+peter+' done and dusted writing')
     
 peters = ['akira','benjamin', 'chukwu', 'ibe', 'james', 'john', 'kwame', 'mary', 'melik', 'mike', 'mike4', 'mike9','suo','sampson' ]
-#work(peters)
+
+
+work(peters)
 random.shuffle(peters)
 add(peters)
 
