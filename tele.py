@@ -138,7 +138,10 @@ def removeOldUsers(users):
         if not user in oldUsers:
             new.append(user)
     singlifiedNewUsers = makeSingle(new)
-    os.rename('users.txt', 'removed_user.txt')
+    try:
+        os.rename('users.txt', 'removed_user.txt')
+    except e:
+        print('oldies not deleted')
     return singlifiedNewUsers
     
 def add(peters):
