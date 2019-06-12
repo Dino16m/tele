@@ -25,7 +25,7 @@ from telethon.tl.types import ChannelAdminLogEventsFilter
 from telethon.tl.types import InputUserSelf
 from telethon.tl.types import InputUser
 from telethon.tl.types import InputPeerEmpty, InputPeerChannel, InputPeerUser, PeerUser
-from singlify import singlify
+from singlify import makeSingle
 import os
 from telethon.tl.functions.channels import InviteToChannelRequest
 
@@ -138,10 +138,9 @@ def removeOldUsers(users):
     for user in users:
         if not user in oldUsers:
             new.append(user)
-    singlifiedNewUsers = singlify(new)
+    singlifiedNewUsers = makeSingle(new)
     os.rename('users.txt', 'removed_user.txt')
     return singlifiedNewUsers
-    
     
 def add(peters):
     users = getUsersFromCsv('users.txt')
