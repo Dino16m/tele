@@ -7,9 +7,9 @@ def readFromFile(filename):
             lines = file.readlines()
             list = []
             for line in lines:
-            list.append(line)
-    file.close()
-    os.rename(filename, 'old_'+filename)
+                list.append(line)
+        file.close()
+        os.rename(filename, 'old_'+filename)
     return list
     
 def writeToFile(items, filename):
