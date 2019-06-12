@@ -2,11 +2,11 @@ import os
 
 def readFromFile(filename):
     file = open(filename, "r")
-        if file.mode == "r":
-            lines = file.readlines()
-            list = []
-            for line in lines:
-                list.append(line)
+    if file.mode == "r":
+        lines = file.readlines()
+        list = []
+        for line in lines:
+            list.append(line)
         file.close()
         os.rename(filename, 'old_'+filename)
     return list
