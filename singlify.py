@@ -1,16 +1,14 @@
 import os
 
 def readFromFile(filename):
-    try:
-        file = open(filename, "r")
+    file = open(filename, "r")
         if file.mode == "r":
             lines = file.readlines()
             list = []
             for line in lines:
                 list.append(line)
-    except e:
-    file.close()
-    os.rename(filename, 'old_'+filename)
+        file.close()
+        os.rename(filename, 'old_'+filename)
     return list
     
 def writeToFile(items, filename):
