@@ -123,12 +123,14 @@ def getSomeUsers(range, users):
 
             
 def getAllChannelUsers(client, channels):
+    list = []
     for channel in channels:
         if channel == None:
             continue
         users = getChannelParticipants(client, channel)
-    users = removeOldUsers(users)
-    addUsersToCsv(users, 'users.txt')
+        list.append(users)
+    list = removeOldUsers(list)
+    addUsersToCsv(list, 'users.txt')
     return True
     
 def removeOldUsers(users):
