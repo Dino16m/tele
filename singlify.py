@@ -26,12 +26,12 @@ def singlify(listItems):
         if not listItem in single:
             single.append(listItem)
     return single
+    
 def makeSingle(param):
     return singlify(param)
+    
 def work():
     repeated = readFromFile('users.txt')
     singles = singlify(repeated)
     if writeToFile(singles, 'users.txt'):
         print('You now have unique files')
-
-work()

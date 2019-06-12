@@ -55,7 +55,7 @@ def getChannelParticipants(client, channel):
         print(e.args)
     return users
     
-def addUsersToCsv(users, filename, isList):
+def addUsersToCsv(users, filename, isList=False):
     file = open(filename, "a")
     for user in users:
         if user.username == None:
@@ -96,6 +96,8 @@ def addUsersToChannel(client, users, channel):
     return success
     
 def getUsersFromCsv(filePath):
+    if not os.path.isfile(filePath):
+        return []
     file = open(filePath, "r")
     if file.mode == "r":
         lines = file.readlines()
@@ -128,21 +130,20 @@ def getAllChannelUsers(client, channels):
         if channel == None:
             continue
         users = getChannelParticipants(client, channel)
-        list.append(users)
-    list = removeOldUsers(list)
-    addUsersToCsv(list, 'users.txt')
+        new = removeOldUsers(users)
+        addUsersToCsv(new, 'users.txt')
     return True
     
 def removeOldUsers(users):
     oldUsers = getUsersFromCsv('users.txt')
     new = []
     for user in users:
-        if not user.username in oldUsers and not user.username == none:
+        if not user.username in oldUsers and not user.username == None:
             new.append(user)
     singlifiedNewUsers = makeSingle(new)
     try:
         os.rename('users.txt', 'removed_user.txt')
-    except e:
+    except Exception:
         print('oldies not deleted')
     return singlifiedNewUsers
     
