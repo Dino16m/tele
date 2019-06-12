@@ -55,7 +55,7 @@ def getChannelParticipants(client, channel):
         print(e.args)
     return users
     
-def addUsersToCsv(users, filename):
+def addUsersToCsv(users, filename, isList):
     file = open(filename, "a")
     for user in users:
         if user.username == None:
@@ -137,7 +137,7 @@ def removeOldUsers(users):
     oldUsers = getUsersFromCsv('users.txt')
     new = []
     for user in users:
-        if not user in oldUsers:
+        if not user.username in oldUsers and not user.username == none:
             new.append(user)
     singlifiedNewUsers = makeSingle(new)
     try:
