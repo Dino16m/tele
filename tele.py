@@ -130,8 +130,9 @@ def getAllChannelUsers(client, channels):
         if channel == None:
             continue
         users = getChannelParticipants(client, channel)
-        new = removeOldUsers(users)
-        addUsersToCsv(new, 'users.txt')
+        list.extend(users)
+    new = removeOldUsers(list)
+    addUsersToCsv(new, 'users.txt')
     return True
     
 def removeOldUsers(users):
