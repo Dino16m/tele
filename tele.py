@@ -49,7 +49,7 @@ def getChannelParticipants(client, channel):
     
 def addUsersToCsv(users, filepath, singlify = False):
     basename = os.path.basename(filepath)
-    basedir = os.path.basedir(filepath)
+    basedir = os.path.dirname(filepath)
     if singlify:
         return writeSingle(filepath, users) 
     else:
@@ -87,7 +87,7 @@ def addUsersToChannel(client, users, channel):
     
 def getUsersFromCsv(filePath):
     basename = os.path.basename(filepath)
-    basedir = os.path.basedir(filepath)
+    basedir = os.path.dirname(filepath)
     if not os.path.isfile(basedir+basename):
         return []
     return readFromFile(basename, basedir)
@@ -126,7 +126,7 @@ def numberOfUsers(filepath):
     if not os.path.isfile(filepath): 
         return 0
     basename = os.path.basename(filepath)
-    basedir = os.path.basedir(filepath)
+    basedir = os.path.dirname(filepath)
     return len(readFromFile(basename, basedir))
 
 def backup(filepath):
@@ -185,7 +185,7 @@ def work(people, filepath):
     number = addUsersToCsv(users, filepath, True)
     print('storing users ended')
     return number
-peters = ['akira','benjamin', 'chukwu', 'ibe', 'james', 'john', 'kwame', 'mary', 'melik', 'mike', 'mike4', 'mike9','suo','sampson' ]
+peters = ['akira','benjamin', 'chukwu', 'ibe', 'james', 'john', 'kwame', 'mary', 'melik', 'mike', 'mike4', 'mike9','suo' ]
 
 
 work(peters, 'users.txt')

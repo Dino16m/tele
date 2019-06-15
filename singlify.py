@@ -48,7 +48,7 @@ def backupUsers(filepath):
     if not os.path.isfile(filepath):
         return False
     basename = os.path.basename(filepath)
-    basedir = os.path.basedir(filepath)
+    basedir = os.path.dirname(filepath)
     bak = basename + '.bak'
     if os.path.isfile(basedir+bak):
         readOld = readFromFile(bak, basedir)
@@ -71,7 +71,7 @@ def commitSuccess(success, filepath):
     if not os.path.isfile(filepath):
         return False
     basename = os.path.basename(filepath)
-    basedir = os.path.basedir(filepath)
+    basedir = os.path.dirname(filepath)
     try:
         os.remove(filepath)
     except Exception as e:
