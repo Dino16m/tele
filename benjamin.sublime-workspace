@@ -1,0 +1,898 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"redire",
+				"redirect\tL5 Redirect"
+			],
+			[
+				"ay",
+				"array_merge"
+			],
+			[
+				"paymen",
+				"paymentDetails\t(dashboardController.php)"
+			],
+			[
+				"payment",
+				"paymentDetails"
+			],
+			[
+				"user",
+				"userDets"
+			],
+			[
+				"projecti",
+				"projection"
+			],
+			[
+				"patm",
+				"paymentDetails"
+			],
+			[
+				"sent_",
+				"sent_by_superadmin"
+			],
+			[
+				"isS",
+				"isSuperAdmin"
+			],
+			[
+				"adm",
+				"admin_id"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"stat",
+				"status"
+			],
+			[
+				"admin",
+				"adminId"
+			],
+			[
+				"instru",
+				"instruction\t(dashboardController.php)"
+			],
+			[
+				"users",
+				"users_id"
+			],
+			[
+				"dele",
+				"delete"
+			],
+			[
+				"first",
+				"first"
+			],
+			[
+				"accoun",
+				"accountDetails"
+			],
+			[
+				"arra",
+				"array_merge"
+			],
+			[
+				"file",
+				"file_path"
+			],
+			[
+				"uploa",
+				"uploadedId"
+			],
+			[
+				"priva",
+				"privacy-policy\t(welcome.blade.php)"
+			],
+			[
+				"notifica",
+				"notification"
+			],
+			[
+				"messageModel",
+				"messageModels"
+			],
+			[
+				"messages",
+				"messagesToAll"
+			],
+			[
+				"Notifi",
+				"notification"
+			],
+			[
+				"Query",
+				"QueryException"
+			],
+			[
+				"send",
+				"sendNotificationToAll"
+			],
+			[
+				"emai",
+				"emailErrors"
+			],
+			[
+				"pho",
+				"phoneNumberErrors"
+			],
+			[
+				"sh",
+				"showSnackbar"
+			],
+			[
+				"set",
+				"setTimeout\t(request.vue)"
+			],
+			[
+				"si",
+				"signingIn"
+			],
+			[
+				"notif",
+				"notifications"
+			],
+			[
+				"fir",
+				"first_name\t(Constants.php)"
+			],
+			[
+				"not",
+				"notification_id"
+			],
+			[
+				"notific",
+				"notification"
+			],
+			[
+				"notifi",
+				"notification"
+			],
+			[
+				"error",
+				"error"
+			],
+			[
+				"Notif",
+				"notifications"
+			],
+			[
+				"no",
+				"notification"
+			],
+			[
+				"noti",
+				"notification_id"
+			],
+			[
+				"fi",
+				"find"
+			],
+			[
+				"notii",
+				"notification"
+			],
+			[
+				"pass",
+				"password"
+			],
+			[
+				"sign",
+				"sign-out"
+			],
+			[
+				"super_",
+				"super_admin\t(admin.php)"
+			],
+			[
+				"we",
+				"wellsoptions\t(welcome.blade.php)"
+			],
+			[
+				"signi",
+				"sign-in"
+			],
+			[
+				"logo",
+				"logo_no_bg.png\t(welcome.blade.php)"
+			],
+			[
+				"retur",
+				"return\t(app.php)"
+			],
+			[
+				"pay",
+				"payment_instructions"
+			],
+			[
+				"id_verif",
+				"id_verified"
+			],
+			[
+				"id_",
+				"id_uploaded"
+			],
+			[
+				"firs",
+				"first"
+			],
+			[
+				"a",
+				"account"
+			],
+			[
+				"acco",
+				"account_name"
+			],
+			[
+				"reques",
+				"request"
+			],
+			[
+				"with",
+				"withdrawal"
+			],
+			[
+				"depo",
+				"deposit"
+			],
+			[
+				"fina",
+				"financial_institution"
+			],
+			[
+				"acc",
+				"account_number"
+			],
+			[
+				"req",
+				"request"
+			],
+			[
+				"accou",
+				"account_number"
+			],
+			[
+				"require",
+				"required"
+			],
+			[
+				"account",
+				"accountDetails"
+			],
+			[
+				"f",
+				"function"
+			],
+			[
+				"has",
+				"hasNext"
+			],
+			[
+				"message",
+				"messageModels"
+			],
+			[
+				"is",
+				"isEmpty"
+			],
+			[
+				"notificat",
+				"notifications"
+			],
+			[
+				"Ec",
+				"Exception"
+			],
+			[
+				"Excep",
+				"Exception\t(userAuth.php)"
+			],
+			[
+				"phone",
+				"phone_number"
+			],
+			[
+				"ad",
+				"address"
+			],
+			[
+				"app",
+				"append"
+			],
+			[
+				"form",
+				"formData"
+			],
+			[
+				"fu",
+				"function\t(web.php)"
+			],
+			[
+				"count",
+				"country\t(userAuth.php)"
+			],
+			[
+				"ph",
+				"phone_number\t(userAuth.php)"
+			],
+			[
+				"requi",
+				"required|string\t(userAuth.php)"
+			],
+			[
+				"cre",
+				"created\t(api_Documentation.md)"
+			],
+			[
+				"make",
+				"makeItRain@gmail.com"
+			],
+			[
+				"nu",
+				"numberBetween\t(messageFactory.php)"
+			],
+			[
+				"messagse",
+				"messages\t(userAuth.php)"
+			],
+			[
+				"getMess",
+				"getMessage\t(adminDashboardController.php)"
+			],
+			[
+				"getMe",
+				"getMessage\t(adminDashboardController.php)"
+			],
+			[
+				"tr",
+				"try\tWrap in try { … } catch (…) { … }"
+			],
+			[
+				"number",
+				"numberBetween($min\t(Generator.php)"
+			],
+			[
+				"msg",
+				"msgBag"
+			],
+			[
+				"email",
+				"email_verification_token\t(userAuth.php)"
+			],
+			[
+				"transac",
+				"transaction_history\t(web.php)"
+			],
+			[
+				"asser",
+				"assertJson\t(adminTest.php)"
+			],
+			[
+				"transa",
+				"transactions"
+			],
+			[
+				"coll",
+				"collect"
+			],
+			[
+				"rer",
+				"return"
+			],
+			[
+				"search",
+				"searchable\t(adminDashboardController.php)"
+			],
+			[
+				"last",
+				"last_name\t(Constants.php)"
+			],
+			[
+				"sea",
+				"searchable\t(adminDashboardController.php)"
+			],
+			[
+				"project",
+				"project_income\t(web.php)"
+			],
+			[
+				"delete",
+				"delete_user\t(web.php)"
+			],
+			[
+				"str",
+				"strtolower"
+			],
+			[
+				"testSendNotifi",
+				"testSendNotificationToOne"
+			],
+			[
+				"proje",
+				"projected_income"
+			],
+			[
+				"redir",
+				"redirect\t(userAuth.php)"
+			],
+			[
+				"crea",
+				"create"
+			],
+			[
+				"change",
+				"change_password\t(web.php)"
+			],
+			[
+				"pa",
+				"page"
+			],
+			[
+				"wid",
+				"width\tproperty"
+			],
+			[
+				"wi",
+				"width\tproperty"
+			],
+			[
+				"paddin",
+				"padding-left\tproperty"
+			],
+			[
+				"padd",
+				"padding-right\tproperty"
+			],
+			[
+				"cl",
+				"class\tAttr"
+			],
+			[
+				"st",
+				"style\tAttr"
+			],
+			[
+				"update",
+				"updated_at\t(adminDashboardController.php)"
+			],
+			[
+				"eam",
+				"email_verification_token\t(userAuth.php)"
+			],
+			[
+				"quer",
+				"queryAll"
+			],
+			[
+				"s",
+				"strpos"
+			],
+			[
+				"tit",
+				"title"
+			],
+			[
+				"getN",
+				"getNotificationsByQuery"
+			],
+			[
+				"els",
+				"else\t(dashboardController.php)"
+			],
+			[
+				"bo",
+				"border-color"
+			],
+			[
+				"depis",
+				"deposits"
+			],
+			[
+				"deposi",
+				"depositCount"
+			],
+			[
+				"withdra",
+				"withdrawalCount"
+			],
+			[
+				"val",
+				"valueOf\t(dashboardController.php)"
+			],
+			[
+				"value",
+				"valueOf"
+			],
+			[
+				"withdr",
+				"withdrawal"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "tele.py",
+			"settings":
+			{
+				"buffer_size": 5738,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Co",
+				"Preferences: Browse Packages"
+			],
+			[
+				"Package Control: s",
+				"Package Control: Install Package"
+			],
+			[
+				"\n",
+				"Bookmarks: Clear All"
+			],
+			[
+				"Package Control: i",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"About"
+			],
+			[
+				"Snippet: ",
+				"Snippet: <?php echo $this->… ?>"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 414.0,
+		"history":
+		[
+			"print('helo')",
+			"home",
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"0.48*80",
+			"48/100",
+			"var name=\"lol\";",
+			"var name=\"lol\"",
+			"50+60",
+			"var name= 80;",
+			"console.log('lol')",
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/xampp/htdocs/tele"
+	],
+	"file_history":
+	[
+		"/C/xampp/htdocs/newJob/app/admin.php",
+		"/C/xampp/htdocs/newJob/app/Http/Middleware/admin.php",
+		"/C/xampp/htdocs/newJob/app/User.php",
+		"/C/xampp/htdocs/newJob/app/Http/Controllers/adminAuth.php",
+		"/C/xampp/htdocs/newJob/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php",
+		"/C/xampp/htdocs/newJob/app/Constants.php",
+		"/C/xampp/htdocs/newJob/resources/views/admin.blade.php",
+		"/C/xampp/htdocs/newJob/public/core/js/user.js",
+		"/C/xampp/htdocs/newJob/routes/web.php",
+		"/C/xampp/htdocs/newJob/app/Http/Controllers/adminDashboardController.php",
+		"/C/xampp/htdocs/newJob/api_Documentation.md",
+		"/C/xampp/htdocs/newJob/app/Http/Controllers/dashboardController.php",
+		"/C/xampp/htdocs/UdaraTV/resources/assets/js/components/uploadComponent.vue",
+		"/C/xampp/htdocs/newJob/public/core/js/user-sign-in.js",
+		"/C/xampp/htdocs/newJob/resources/js/app.js",
+		"/C/xampp/htdocs/UdaraTV/resources/assets/js/components/request.vue",
+		"/C/xampp/htdocs/newJob/public/core/js/admin-sign-in.js",
+		"/C/xampp/htdocs/newJob/app/Http/Middleware/Authenticate.php",
+		"/C/xampp/htdocs/newJob/bootstrap/app.php",
+		"/C/xampp/htdocs/newJob/app/Http/Kernel.php",
+		"/C/xampp/htdocs/newJob/app/Http/Middleware/CheckForMaintenanceMode.php",
+		"/C/xampp/htdocs/newJob/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasRelationships.php",
+		"/C/xampp/htdocs/newJob/app/messages.php",
+		"/C/xampp/htdocs/newJob/resources/views/privacy.blade.php",
+		"/C/xampp/htdocs/newJob/resources/views/welcome.blade.php",
+		"/C/xampp/htdocs/tele/.git/config",
+		"/C/xampp/htdocs/newJob/resources/views/oldwelcome.blade.php",
+		"/C/xampp/htdocs/newJob/app/Http/Controllers/userAuth.php",
+		"/C/xampp/htdocs/UdaraTV/node_modules/axios/dist/axios.js",
+		"/C/xampp/htdocs/UdaraTV/resources/assets/js/components/newSeriesComponent.vue",
+		"/C/xampp/htdocs/newJob/resources/views/headers.blade.php",
+		"/C/xampp/htdocs/newJob/resources/views/admin-sign-in.blade.php",
+		"/C/xampp/htdocs/newJob/resources/views/layouts/app.blade.php",
+		"/C/xampp/htdocs/newJob/vendor/laravel/framework/src/Illuminate/Notifications/Messages/MailMessage.php",
+		"/C/xampp/htdocs/newJob/.env",
+		"/C/xampp/htdocs/newJob/vendor/laravel/framework/src/Illuminate/Foundation/Auth/SendsPasswordResetEmails.php",
+		"/C/xampp/htdocs/newJob/app/Http/Controllers/Auth/ResetPasswordController.php",
+		"/C/xampp/htdocs/newJob/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php",
+		"/C/xampp/htdocs/Dev stash/users - Copy.txt",
+		"/C/xampp/htdocs/newJob/app/Http/Middleware/RedirectIfAuthenticated.php",
+		"/C/xampp/htdocs/newJob/app/Http/Controllers/Auth/ForgotPasswordController.php",
+		"/C/xampp/htdocs/newJob/composer.lock",
+		"/C/xampp/htdocs/newJob/app/Http/Middleware/VerifyCsrfToken.php",
+		"/C/xampp/htdocs/newJob/routes/api.php",
+		"/C/xampp/htdocs/UdaraTV/app/Http/Controllers/uploadController.php",
+		"/C/xampp/htdocs/newJob/app/Mail/verifyEmail.php",
+		"/C/xampp/htdocs/newJob/config/mail.php",
+		"/C/xampp/htdocs/newJob/vendor/laravel/framework/src/Illuminate/Foundation/Auth/ResetsPasswords.php",
+		"/C/xampp/htdocs/newJob/vendor/laravel/framework/src/Illuminate/Auth/Passwords/PasswordBroker.php",
+		"/C/xampp/htdocs/newJob/vendor/laravel/framework/src/Illuminate/Auth/Passwords/CanResetPassword.php",
+		"/C/xampp/htdocs/newJob/vendor/laravel/framework/src/Illuminate/Auth/Notifications/ResetPassword.php",
+		"/C/xampp/htdocs/newJob/vendor/laravel/framework/src/Illuminate/Auth/Passwords/PasswordBrokerManager.php",
+		"/C/xampp/htdocs/newJob/.env.example",
+		"/C/xampp/htdocs/newJob/.git/config",
+		"/C/xampp/htdocs/newJob/resources/views/user-sign-in.blade.php",
+		"/C/xampp/htdocs/newJob/.git/index.lock",
+		"/C/xampp/htdocs/newJob/database/seeds/DatabaseSeeder.php",
+		"/C/xampp/htdocs/newJob/public/core/js/admin.js",
+		"/C/xampp/htdocs/newJob/.git/index",
+		"/C/xampp/htdocs/newJob/resources/views/user.blade.php",
+		"/C/xampp/htdocs/newJob/vendor/laravel/framework/src/Illuminate/Http/Request.php",
+		"/C/xampp/htdocs/newJob/app/Listeners/userCreationListener.php",
+		"/C/xampp/htdocs/newJob/resources/views/test.blade.php",
+		"/C/xampp/htdocs/newJob/app/Listeners/accountFundedListener.php",
+		"/C/xampp/htdocs/newJob/app/Http/Middleware/test.php",
+		"/C/xampp/htdocs/newJob/app/accountDetails.php",
+		"/C/xampp/htdocs/UdaraTV/resources/views/index.blade.php",
+		"/C/xampp/htdocs/UdaraTV/resources/views/pa_antiadblock_2523772.php",
+		"/C/Users/DARLINGTON/Desktop/wellstrade/index.html",
+		"/C/xampp/htdocs/newJob/database/migrations/2019_06_07_221050_create_account_details_table.php",
+		"/C/xampp/htdocs/newJob/app/Events/newUserCreated.php",
+		"/C/xampp/htdocs/newJob/app/Http/Controllers/HomeController.php",
+		"/C/xampp/htdocs/newU/app/Http/Middleware/RedirectIfAuthenticated.php",
+		"/C/xampp/htdocs/newJob/app/Mail/accountFundedMail.php",
+		"/C/xampp/htdocs/newJob/resources/views/emails/verifyEmail.blade.php",
+		"/C/xampp/htdocs/newJob/resources/views/emails/welcomeEmail.blade.php",
+		"/C/xampp/apache/conf/httpd.conf",
+		"/C/xampp/htdocs/Dev stash/dynasties.session",
+		"/C/xampp/htdocs/newJob/resources/views/emails/fundAlert.blade.php",
+		"/G/tj/core/js/user-sign-in.js",
+		"/C/xampp/htdocs/UdaraTV/resources/assets/js/app.js",
+		"/C/xampp/htdocs/newJob/storage/logs/laravel-2019-06-06.log",
+		"/C/xampp/htdocs/newJob/resources/views/auth/login.blade.php",
+		"/C/xampp/htdocs/newJob/app/Services/uploadService.php",
+		"/C/xampp/htdocs/newJob/database/seeds/admin.php",
+		"/C/xampp/htdocs/newJob/tests/Feature/adminTest.php",
+		"/C/xampp/htdocs/newJob/database/factories/UserFactory.php",
+		"/C/xampp/htdocs/UdaraTV/tests/Feature/UploadTest.php",
+		"/C/xampp/htdocs/newJob/app/Validator.php",
+		"/C/xampp/htdocs/newJob/tests/Feature/userTest.php",
+		"/C/xampp/htdocs/newJob/database/factories/messageFactory.php",
+		"/C/xampp/htdocs/newJob/database/seeds/messageSeeder.php",
+		"/C/xampp/htdocs/newJob/vendor/fzaninotto/faker/src/Faker/Generator.php",
+		"/C/xampp/htdocs/newJob/vendor/laravel/framework/src/Illuminate/Validation/Validator.php",
+		"/C/xampp/htdocs/UdaraTV/tests/Feature/categoryTest.php",
+		"/C/xampp/htdocs/newJob/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php",
+		"/C/xampp/htdocs/newJob/database/factories/idFactory.php",
+		"/C/xampp/htdocs/newJob/database/seeds/idSeeder.php",
+		"/C/xampp/htdocs/newJob/public/css/app.css",
+		"/C/xampp/htdocs/newJob/resources/js/bootstrap.js",
+		"/C/xampp/htdocs/UdaraTV/node_modules/mdbootstrap/scss/mdb.scss",
+		"/C/xampp/htdocs/newJob/resources/sass/app.scss",
+		"/C/xampp/htdocs/UdaraTV/node_modules/bootstrap/scss/bootstrap.scss",
+		"/C/xampp/htdocs/UdaraTV/resources/assets/sass/app.scss",
+		"/C/xampp/htdocs/UdaraTV/node_modules/mdbootstrap/scss/style.scss",
+		"/C/xampp/htdocs/Dev stash/MDB-Free/js/mdb.js",
+		"/C/xampp/htdocs/Dev stash/MDB-Free/js/bootstrap.js",
+		"/C/xampp/htdocs/Dev stash/MDB-Free/scss/mdb.scss",
+		"/C/xampp/htdocs/newJob/vendor/laravel/framework/src/Illuminate/Broadcasting/BroadcastManager.php",
+		"/C/xampp/htdocs/newJob/config/app.php",
+		"/C/xampp/htdocs/UdaraTV/node_modules/lodash/_baseFor.js",
+		"/C/xampp/htdocs/newJob/vendor/laravel/framework/src/Illuminate/Contracts/Pagination/Paginator.php",
+		"/C/xampp/htdocs/newJob/vendor/laravel/framework/src/Illuminate/Pagination/Paginator.php",
+		"/C/xampp/htdocs/newJob/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php",
+		"/C/xampp/htdocs/newJob/vendor/laravel/framework/src/Illuminate/Pagination/AbstractPaginator.php",
+		"/C/xampp/htdocs/newJob/tests/Feature/admin.php",
+		"/C/xampp/htdocs/newJob/resources/views/verifyEmail.blade.php",
+		"/C/xampp/htdocs/newJob/config/auth.php",
+		"/C/xampp/htdocs/newJob/database/factories/adminFactory.php",
+		"/C/xampp/htdocs/newJob/database/seeds/UsersTableSeeder.php",
+		"/C/xampp/htdocs/UdaraTV/app/Http/Controllers/categoryController.php",
+		"/C/xampp/htdocs/newJob/database/migrations/2019_05_19_092634_create_payments_table.php",
+		"/C/xampp/htdocs/newJob/database/migrations/2019_05_19_094728_create_trades_table.php",
+		"/C/xampp/htdocs/newJob/database/migrations/2019_05_21_173833_create_withdrawals_table.php",
+		"/C/xampp/htdocs/newJob/resources/views/emails/welcomeEmailPlain.blade.php",
+		"/C/xampp/htdocs/newJob/resources/views/emails/verifyEmailPlain.blade.php",
+		"/C/xampp/htdocs/newJob/resources/views/emails/fundAlertPlain.blade.php",
+		"/C/xampp/htdocs/UdaraTV/resources/views/emails/subscription_plain.blade.php"
+	],
+	"find":
+	{
+		"height": 24.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "tele.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5738,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1396,
+								1396
+							]
+						],
+						"settings":
+						{
+							"SL.20.region_keys":
+							[
+							],
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 17.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 24.0
+	},
+	"input":
+	{
+		"height": 209.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "benjamin.sublime-project",
+	"replace":
+	{
+		"height": 44.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"resources\\assets\\js\\app.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 243.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
