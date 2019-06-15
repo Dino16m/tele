@@ -86,7 +86,7 @@ def addUsersToChannel(client, users, channel):
         finally:
             if not error == True:
                 print('adding users to channel')
-                success.add(user)
+                success.append(user)
             error = False
         if count >= 50 :
             sleep(random.randint(10,61)*2)
@@ -155,9 +155,11 @@ def add(peters):
             client.send_message('me', 'Hello, myself!')
             channels = getChannels(client)
             print( len(users))
+            random.shuffle(users)
+            users.reverse()
             #users = getChannelParticipants(client, channels['dualminecom'])
             #addUsersToCsv(users, 'users.txt')
-            success = addUsersToChannel(client, users, channels['webtrading4'])
+            success = addUsersToChannel(client, users, channels['Geniushowto'])
             users = removeSuccess(success, users)
             print('peter '+peter+' done and dusted adding')
 
@@ -183,7 +185,7 @@ def work(people):
 peters = ['akira','benjamin', 'chukwu', 'ibe', 'james', 'john', 'kwame', 'mary', 'melik', 'mike', 'mike4', 'mike9','suo','sampson' ]
 
 
-work(peters)
+#work(peters)
 random.shuffle(peters)
 add(peters)
 
