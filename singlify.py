@@ -32,14 +32,20 @@ def singlify(listItems):
     
 def makeSingle(param):
     return singlify(param)
+
+def createFile(filepath):
+    if os.path.isfile(filepath):
+        return
+    open(filepath "w+")
+    file.close()
     
 def writeSingle(filepath, list=[]):
     basename = os.path.basename(filepath)
     basedir = os.path.dirname(filepath)
     if not os.path.isfile(filepath):
-        return False
+        createFile(filepath)
     repeated = readFromFile(basename, basedir)
-    repeated.extend(lsit)
+    repeated.extend(list)
     singles = singlify(repeated)
     if writeToFile(singles, basename, basedir):
         return len(singles)
