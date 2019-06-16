@@ -3,6 +3,7 @@ import shutil
 
 def readFromFile(basename, basedir):
     #it is expected that any method that calls this function must have implemented os.path.isfile(filepath)
+    filename = basedir+basename
     file = open(filename, "r")
     list = []
     if file.mode == "r":
@@ -17,9 +18,11 @@ def writeToFile(items, basename, basedir):
     file = open(filename, "a")
     for item in items:
         if type(item) == str:
-            file.write(item)
-        if not type(item) == str and not type(item) == None:
-            file.write(item.username)
+            file.write(item+'\n')
+        if not type(item) == str and not type(item) == None and not type(item.username) == None:
+            if item.username == None:
+                continue
+            file.write(item.username+'\n')
     file.close()
     return True
     
@@ -36,7 +39,7 @@ def makeSingle(param):
 def createFile(filepath):
     if os.path.isfile(filepath):
         return
-    open(filepath "w+")
+    file = open(filepath, "w+")
     file.close()
     
 def writeSingle(filepath, list=[]):

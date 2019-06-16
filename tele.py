@@ -85,7 +85,7 @@ def addUsersToChannel(client, users, channel):
         count = count + 1
     return success
     
-def getUsersFromCsv(filePath):
+def getUsersFromCsv(filepath):
     basename = os.path.basename(filepath)
     basedir = os.path.dirname(filepath)
     if not os.path.isfile(basedir+basename):
@@ -135,9 +135,12 @@ def backup(filepath):
 def removeUsersAlreadyInChannel(channelUsers, users):
     absentFromChannel = []
     usersInChannel = channelUsers
-    for user in usersInChannel:
-        if not user in users:
+    print('orig length users ='+str(len(users)))
+    print('ori in channel = ' + str(len(channelUsers)))
+    for user in users:
+        if not user in usersInChannel:
             absentFromChannel.append(user)
+    print('new users to afd = '+str(len(absentFromChannel)))
     return absentFromChannel
 
 def add(peters, filepath, channelInto, limit=1000):
@@ -188,9 +191,9 @@ def work(people, filepath):
 peters = ['akira','benjamin', 'chukwu', 'ibe', 'james', 'john', 'kwame', 'mary', 'melik', 'mike', 'mike4', 'mike9','suo' ]
 
 
-work(peters, 'users.txt')
+#work(peters, 'users.txt')
 random.shuffle(peters)
-add(peters, 'users', 'webtrading4')
+add(peters, 'users.txt', 'webtrading4')
 
 
 
