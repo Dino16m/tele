@@ -1,15 +1,3 @@
-#api_id = 872129
-#api_hash = '1390959115b339a8e20294e3591a8b41'
-#app_title = Telchat
-#short_name = Telchat1
-#mine below, peters'above
-#api_id = 764531
-#api_hash = a41f8549c7dd1341613de3569f9796cb
-#app_title = telchannel
-#app_name = telchan2020
-#test_channel= 'webtrading4'
-#my channel = 'UdaraTV'
-
 import random
 from telethon.sync import TelegramClient
 from telethon.tl.functions.channels import JoinChannelRequest
@@ -25,6 +13,7 @@ from telethon.tl.types import InputUser
 from telethon.tl.types import InputPeerEmpty, InputPeerChannel, InputPeerUser, PeerUser
 from singlify import makeSingle, readFromFile, writeToFile, writeSingle, backupUsers, commitSuccess
 import os
+from vomitonegro import do
 from telethon.tl.functions.channels import InviteToChannelRequest
 
 
@@ -133,29 +122,24 @@ def backup(filepath):
     return backupUsers(filepath)
 
 def removeUsersAlreadyInChannel(channelUsers, users):
-    absentFromChannel = []
     usersInChannel = channelUsers
-    print('orig length users ='+str(len(users)))
-    print('ori in channel = ' + str(len(channelUsers)))
-    for user in users:
-        if not user in usersInChannel:
-            absentFromChannel.append(user)
-    print('new users to afd = '+str(len(absentFromChannel)))
-    return absentFromChannel
+    for channelUser in channelUsers:
+        if channelUser.username in users:
+            users.remove(channelUser.username)
+    return users
 
-def add(peters, filepath, channelInto, limit=1000):
+def add(peters, channelInto, filepath='users.txt', limit=1000):
+    do()
     count = 0
     if not os.path.isfile(filepath):
         return 0
     print('adding has started')
     users = getUsersFromCsv(filepath)
     removedUsersInChannel = False
-    backup(filepath)
     for peter in peters:
         with TelegramClient(peter, api_id, api_hash) as client:
             client.send_message('me', 'Hello, myself!')
             channels = getChannels(client)
-            print( len(users))
             random.shuffle(users)
             users.reverse()
             if not removedUsersInChannel:
@@ -174,7 +158,8 @@ def add(peters, filepath, channelInto, limit=1000):
     print('adding has ended')
     return True
 
-def work(people, filepath):
+def work(peters, filepath='users.txt'):
+    do()
     print('storing users started')
     allUsers = []
     for peter in peters:
@@ -188,12 +173,7 @@ def work(people, filepath):
     number = addUsersToCsv(users, filepath, True)
     print('storing users ended')
     return number
-peters = ['akira','benjamin', 'chukwu', 'ibe', 'james', 'john', 'kwame', 'mary', 'melik', 'mike', 'mike4', 'mike9','suo' ]
 
-
-#work(peters, 'users.txt')
-random.shuffle(peters)
-add(peters, 'users.txt', 'webtrading4')
 
 
 

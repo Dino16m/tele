@@ -9,7 +9,8 @@ def readFromFile(basename, basedir):
     if file.mode == "r":
         lines = file.readlines()
         for line in lines:
-            list.append(line)
+            if not line == None and not line == "":
+                list.append(line)
         file.close()
     return list
     
@@ -18,11 +19,13 @@ def writeToFile(items, basename, basedir):
     file = open(filename, "a")
     for item in items:
         if type(item) == str:
-            file.write(item+'\n')
+            file.write(item)
+            file.write('\n')
         if not type(item) == str and not type(item) == None and not type(item.username) == None:
             if item.username == None:
                 continue
-            file.write(item.username+'\n')
+            file.write(item.username)
+            file.write('\n')
     file.close()
     return True
     
