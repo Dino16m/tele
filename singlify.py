@@ -9,20 +9,21 @@ def readFromFile(basename, basedir):
     if file.mode == "r":
         lines = file.readlines()
         for line in lines:
-            if not line == None and not line == "":
-                list.append(line)
+            if line is not None and not line == "":
+                list.append(line.strip())
         file.close()
     return list
     
 def writeToFile(items, basename, basedir):
     filename = basedir + basename
     file = open(filename, "a")
+    items.sort()
     for item in items:
         if type(item) == str:
             file.write(item)
             file.write('\n')
-        if not type(item) == str and not type(item) == None and not type(item.username) == None:
-            if item.username == None:
+        if not type(item) == str and type(item) is not None and type(item.username) is not None:
+            if item.username is None:
                 continue
             file.write(item.username)
             file.write('\n')
@@ -30,11 +31,9 @@ def writeToFile(items, basename, basedir):
     return True
     
 def singlify(listItems):
-    single = []
-    for listItem in listItems:
-        if not listItem in single:
-            single.append(listItem)
-    return single
+    singleSet = set(listItems)
+    singleList = list(singleSet)
+    return singleList
     
 def makeSingle(param):
     return singlify(param)
@@ -69,13 +68,13 @@ def backupUsers(filepath):
         singles = singlify(readNew)
         try:
             os.remove(basedir+bak)
-        except Exception as e:
+        except Exception:
             False
         if writeToFile(singles, bak, basedir):
             return basedir + bak
     try:
         shutil.copystat(basedir+basename, basedir+bak)
-    except Exception as e:
+    except Exception:
         return False 
     return basedir+bak
 
@@ -86,7 +85,7 @@ def commitSuccess(success, filepath):
     basedir = os.path.dirname(filepath)
     try:
         os.remove(filepath)
-    except Exception as e:
+    except Exception:
         return False
     if writeToFile(success, basename, basedir):
         return True

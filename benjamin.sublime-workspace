@@ -4,6 +4,158 @@
 		"selected_items":
 		[
 			[
+				"prin",
+				"printChannels"
+			],
+			[
+				"cha",
+				"channel"
+			],
+			[
+				"channel",
+				"channelInto"
+			],
+			[
+				"name",
+				"nameToAdd"
+			],
+			[
+				"users",
+				"users.txt"
+			],
+			[
+				"user",
+				"username"
+			],
+			[
+				"f",
+				"filepath"
+			],
+			[
+				"Tu",
+				"True\tkeyword"
+			],
+			[
+				"rem",
+				"removedUsersInChannel"
+			],
+			[
+				"tr",
+				"true\t(Anaconda.sublime-settings)"
+			],
+			[
+				"usr",
+				"users"
+			],
+			[
+				"addin",
+				"adding"
+			],
+			[
+				"br",
+				"break\tkeyword"
+			],
+			[
+				"nu",
+				"number"
+			],
+			[
+				"uses",
+				"users"
+			],
+			[
+				"base",
+				"basedir"
+			],
+			[
+				"wr",
+				"writeToFile"
+			],
+			[
+				"read",
+				"readFromFile"
+			],
+			[
+				"sing",
+				"singles"
+			],
+			[
+				"try",
+				"try\tTry/Except"
+			],
+			[
+				"ele",
+				"else\telse"
+			],
+			[
+				"bac",
+				"backup"
+			],
+			[
+				"backup",
+				"backupUsers"
+			],
+			[
+				"t",
+				"try\tTry/Except"
+			],
+			[
+				"filep",
+				"filepath"
+			],
+			[
+				"numbe",
+				"numberOfUsers"
+			],
+			[
+				"not",
+				"not\tkeyword"
+			],
+			[
+				"file",
+				"filepath"
+			],
+			[
+				"writ",
+				"writeSingle"
+			],
+			[
+				"wite",
+				"writeSingle\t(singlify.py)"
+			],
+			[
+				"write",
+				"writeToFile"
+			],
+			[
+				"bas",
+				"basename"
+			],
+			[
+				"if",
+				"if\tIf Condition"
+			],
+			[
+				"bae",
+				"basename"
+			],
+			[
+				"type",
+				"typeof"
+			],
+			[
+				"ty",
+				"typeof"
+			],
+			[
+				"make",
+				"makeUserString"
+			],
+			[
+				"wh",
+				"wholepath"
+			],
+			[
 				"redire",
 				"redirect\tL5 Redirect"
 			],
@@ -18,10 +170,6 @@
 			[
 				"payment",
 				"paymentDetails"
-			],
-			[
-				"user",
-				"userDets"
 			],
 			[
 				"projecti",
@@ -60,10 +208,6 @@
 				"instruction\t(dashboardController.php)"
 			],
 			[
-				"users",
-				"users_id"
-			],
-			[
 				"dele",
 				"delete"
 			],
@@ -78,10 +222,6 @@
 			[
 				"arra",
 				"array_merge"
-			],
-			[
-				"file",
-				"file_path"
 			],
 			[
 				"uploa",
@@ -142,10 +282,6 @@
 			[
 				"fir",
 				"first_name\t(Constants.php)"
-			],
-			[
-				"not",
-				"notification_id"
 			],
 			[
 				"notific",
@@ -268,10 +404,6 @@
 				"accountDetails"
 			],
 			[
-				"f",
-				"function"
-			],
-			[
 				"has",
 				"hasNext"
 			],
@@ -332,14 +464,6 @@
 				"created\t(api_Documentation.md)"
 			],
 			[
-				"make",
-				"makeItRain@gmail.com"
-			],
-			[
-				"nu",
-				"numberBetween\t(messageFactory.php)"
-			],
-			[
 				"messagse",
 				"messages\t(userAuth.php)"
 			],
@@ -350,10 +474,6 @@
 			[
 				"getMe",
 				"getMessage\t(adminDashboardController.php)"
-			],
-			[
-				"tr",
-				"try\tWrap in try { … } catch (…) { … }"
 			],
 			[
 				"number",
@@ -394,126 +514,6 @@
 			[
 				"last",
 				"last_name\t(Constants.php)"
-			],
-			[
-				"sea",
-				"searchable\t(adminDashboardController.php)"
-			],
-			[
-				"project",
-				"project_income\t(web.php)"
-			],
-			[
-				"delete",
-				"delete_user\t(web.php)"
-			],
-			[
-				"str",
-				"strtolower"
-			],
-			[
-				"testSendNotifi",
-				"testSendNotificationToOne"
-			],
-			[
-				"proje",
-				"projected_income"
-			],
-			[
-				"redir",
-				"redirect\t(userAuth.php)"
-			],
-			[
-				"crea",
-				"create"
-			],
-			[
-				"change",
-				"change_password\t(web.php)"
-			],
-			[
-				"pa",
-				"page"
-			],
-			[
-				"wid",
-				"width\tproperty"
-			],
-			[
-				"wi",
-				"width\tproperty"
-			],
-			[
-				"paddin",
-				"padding-left\tproperty"
-			],
-			[
-				"padd",
-				"padding-right\tproperty"
-			],
-			[
-				"cl",
-				"class\tAttr"
-			],
-			[
-				"st",
-				"style\tAttr"
-			],
-			[
-				"update",
-				"updated_at\t(adminDashboardController.php)"
-			],
-			[
-				"eam",
-				"email_verification_token\t(userAuth.php)"
-			],
-			[
-				"quer",
-				"queryAll"
-			],
-			[
-				"s",
-				"strpos"
-			],
-			[
-				"tit",
-				"title"
-			],
-			[
-				"getN",
-				"getNotificationsByQuery"
-			],
-			[
-				"els",
-				"else\t(dashboardController.php)"
-			],
-			[
-				"bo",
-				"border-color"
-			],
-			[
-				"depis",
-				"deposits"
-			],
-			[
-				"deposi",
-				"depositCount"
-			],
-			[
-				"withdra",
-				"withdrawalCount"
-			],
-			[
-				"val",
-				"valueOf\t(dashboardController.php)"
-			],
-			[
-				"value",
-				"valueOf"
-			],
-			[
-				"withdr",
-				"withdrawal"
 			]
 		]
 	},
@@ -523,7 +523,42 @@
 			"file": "tele.py",
 			"settings":
 			{
-				"buffer_size": 5738,
+				"buffer_size": 6249,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "add.py",
+			"settings":
+			{
+				"buffer_size": 1183,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "users.txt",
+			"settings":
+			{
+				"buffer_size": 10350,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "vomitonegro.py",
+			"settings":
+			{
+				"buffer_size": 531,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "singlify.py",
+			"settings":
+			{
+				"buffer_size": 2709,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -542,7 +577,7 @@
 		[
 			[
 				"Package Control: ",
-				"Package Control: Remove Package"
+				"Package Control: Install Package"
 			],
 			[
 				"Package Co",
@@ -576,6 +611,9 @@
 		"height": 414.0,
 		"history":
 		[
+			"a>b",
+			"b= 4",
+			"a = 3",
 			"print('helo')",
 			"home",
 			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
@@ -604,6 +642,15 @@
 	],
 	"file_history":
 	[
+		"/C/Users/DARLINGTON/AppData/Roaming/Sublime Text 3/Packages/SublimeCodeIntel/SublimeCodeIntel.sublime-settings",
+		"/C/Users/DARLINGTON/Desktop/New.py",
+		"/C/xampp/htdocs/tele/main.py",
+		"/G/tj/id_rsa.pub",
+		"/C/Users/DARLINGTON/AppData/Roaming/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
+		"/C/Users/DARLINGTON/AppData/Roaming/Sublime Text 3/Packages/Anaconda/Anaconda.sublime-settings",
+		"/C/Users/DARLINGTON/AppData/Roaming/Sublime Text 3/Packages/User/Python.sublime-settings",
+		"/C/xampp/htdocs/tele/removed_user.txt",
+		"/C/xampp/htdocs/tele/users.txt",
 		"/C/xampp/htdocs/newJob/app/admin.php",
 		"/C/xampp/htdocs/newJob/app/Http/Middleware/admin.php",
 		"/C/xampp/htdocs/newJob/app/User.php",
@@ -722,20 +769,11 @@
 		"/C/xampp/htdocs/newJob/tests/Feature/admin.php",
 		"/C/xampp/htdocs/newJob/resources/views/verifyEmail.blade.php",
 		"/C/xampp/htdocs/newJob/config/auth.php",
-		"/C/xampp/htdocs/newJob/database/factories/adminFactory.php",
-		"/C/xampp/htdocs/newJob/database/seeds/UsersTableSeeder.php",
-		"/C/xampp/htdocs/UdaraTV/app/Http/Controllers/categoryController.php",
-		"/C/xampp/htdocs/newJob/database/migrations/2019_05_19_092634_create_payments_table.php",
-		"/C/xampp/htdocs/newJob/database/migrations/2019_05_19_094728_create_trades_table.php",
-		"/C/xampp/htdocs/newJob/database/migrations/2019_05_21_173833_create_withdrawals_table.php",
-		"/C/xampp/htdocs/newJob/resources/views/emails/welcomeEmailPlain.blade.php",
-		"/C/xampp/htdocs/newJob/resources/views/emails/verifyEmailPlain.blade.php",
-		"/C/xampp/htdocs/newJob/resources/views/emails/fundAlertPlain.blade.php",
-		"/C/xampp/htdocs/UdaraTV/resources/views/emails/subscription_plain.blade.php"
+		"/C/xampp/htdocs/newJob/database/factories/adminFactory.php"
 	],
 	"find":
 	{
-		"height": 24.0
+		"height": 40.0
 	},
 	"find_in_files":
 	{
@@ -749,6 +787,16 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"hizdynasty",
+			"hiz_dynasty",
+			"basedir(",
+			"writeSingle",
+			"basename",
+			"false",
+			"true",
+			"false",
+			"typeof",
+			"pathis"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -756,6 +804,11 @@
 		"regex": false,
 		"replace_history":
 		[
+			"dirname(",
+			"False",
+			"True",
+			"False",
+			"type"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -766,7 +819,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -775,15 +828,62 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5738,
+						"buffer_size": 6249,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1396,
-								1396
+								5466,
+								5466
+							]
+						],
+						"settings":
+						{
+							"SL.13.region_keys":
+							[
+							],
+							"SL.20.region_keys":
+							[
+							],
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								}
+							],
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 238.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "add.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1183,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								779,
+								781
 							]
 						],
 						"settings":
@@ -791,15 +891,110 @@
 							"SL.20.region_keys":
 							[
 							],
+							"open_with_edit": true,
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "users.txt",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 10350,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "vomitonegro.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 531,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								288,
+								288
+							]
+						],
+						"settings":
+						{
+							"SL.16.region_keys":
+							[
+							],
+							"open_with_edit": true,
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "singlify.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2709,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								438,
+								438
+							]
+						],
+						"settings":
+						{
+							"SL.14.region_keys":
+							[
+							],
+							"SL.15.region_keys":
+							[
+							],
 							"syntax": "Packages/Python/Python.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 17.0,
+						"translation.y": 28.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -838,7 +1033,11 @@
 	"menu_visible": true,
 	"output.SublimeLinter":
 	{
-		"height": 0.0
+		"height": 103.0
+	},
+	"output.exec":
+	{
+		"height": 103.0
 	},
 	"output.find_results":
 	{
@@ -848,7 +1047,7 @@
 	"project": "benjamin.sublime-project",
 	"replace":
 	{
-		"height": 44.0
+		"height": 71.0
 	},
 	"save_all_on_build": true,
 	"select_file":
