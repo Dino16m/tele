@@ -212,7 +212,7 @@ def getUsers(source, channels={}, online=True, getFrom=[], usedChannels=[]):
 
 def untappedAddingPotential(peterLnt, count, limit, userLnt):
     if count < limit:
-        return true
+        return True
     weight = 10
     if count < limit:
         weight+=1
@@ -232,7 +232,7 @@ def add(peters, channelInto, online=True, getFrom=[], filepath='users.txt', limi
     #do()
     count = 0
     print('adding has started')  # delete in production
-    users = (lambda: getUsers(filepath, online=False), lambda: [])[online is True]()
+    users = [] #(lambda: getUsers(filepath, online=False), lambda: [])[online is True]()
     removedUsersInChannel = False
     usedChannels = []
     trials = 1
@@ -264,7 +264,7 @@ def add(peters, channelInto, online=True, getFrom=[], filepath='users.txt', limi
                 if not users and (peters[len(peters)-1] == peter and count<limit):
                     raise OutOfUserException(count, limit)
                 users = removeSuccess(success, users)
-                shuffle(users)
+                users.shuffle()
                 print('successes are '+str(len(success)))
                 print('users after accounting for successes are '+ str(len(users)))
                 print('peter '+peter+' done and dusted adding.')
