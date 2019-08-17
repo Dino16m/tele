@@ -211,6 +211,8 @@ def getUsers(source, channels={}, online=True, getFrom=[], usedChannels=[]):
     return users
 
 def untappedAddingPotential(peterLnt, count, limit, userLnt):
+    if count < limit:
+        return true
     weight = 10
     if count < limit:
         weight+=1
@@ -298,5 +300,5 @@ def work(peters, getFrom=[], filepath='users.txt'):
     return number
 
 if __name__ == '__main__': 
-    peters = ['benjamin']
-    add(peters, 'killindemsha', 'users.txt')
+    peters = ['dynasties']
+    add(peters, 'successvisa', ['wizytech','students_tips', 'TodayILearn', 'american'])
