@@ -193,6 +193,7 @@ def removeUsersAlreadyInChannel(channelUsers, users):
 def getUsers(source, channels={}, online=True, getFrom=[], usedChannels=[]):
     users = []
     if online and not channels:
+        exit('not 1')
         return users
     sourceChannels = []
     if online and getFrom:
@@ -204,8 +205,11 @@ def getUsers(source, channels={}, online=True, getFrom=[], usedChannels=[]):
         sourceChannelsSet = set(channels) - set(usedChannels)
         sourceChannels = list(sourceChannelsSet)
         usedChannels.extend(sourceChannels)
+        exit('not 2')
     if online and sourceChannels:
-        users = getAllChannelUsers(source, sourceChannels) 
+        exit('not 3')
+        users = getAllChannelUsers(source, sourceChannels)
+        exit('not 4') 
     if not online:
         if not os.path.isfile(source):
             return users
@@ -241,7 +245,7 @@ def add(peters, channelInto, online=True, getFrom=[], filepath='users.txt', limi
     while trials:
         for peter in peters:
             with TelegramClient(peter, api_id, api_hash) as client:
-                client.send_message('me', 'Hello, myself!')
+                #client.send_message('me', 'Hello, myself!')
                 channels = getChannels(client)
                 tmpUsers = (lambda: users, lambda: getUsers(client, channels, online, getFrom, usedChannels))[online is True]()
                 users = list(set(users + tmpUsers))
