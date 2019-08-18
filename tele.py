@@ -204,11 +204,9 @@ def getUsers(source, channels={}, online=True, getFrom=[], usedChannels=[]):
         sourceChannelsSet = set(channels) - set(usedChannels)
         sourceChannels = list(sourceChannelsSet)
         usedChannels.extend(sourceChannels)
-    if online:
-        if not sourceChannels:
-            return users
+    if online and sourceChannels:
         users = getAllChannelUsers(source, sourceChannels) 
-    else:
+    if not online:
         if not os.path.isfile(source):
             return users
         users = getUsersFromCsv(source)
@@ -304,6 +302,15 @@ def work(peters, getFrom=[], filepath='users.txt'):
     print('storing users ended')
     return number
 
+def joinChannel(peters, channelName):
+    for peter in peters:
+        with TelegramClient(peter, api_id, api_hash) as client:
+            channelEntity = client.get_entity('t.me'+channelName)
+            client(JoinChannelRequest(channelEntity))
+            print('peter '+ peter + 'joined channel' + channelName )
+
+
 if __name__ == '__main__': 
-    peters = ['dynasties']
+    peters = [ '1','10','11','12','13', '5', '7','8','9','akira', 'benjamin', 'chukwu', 'ibe', 'james','john', 'mary','mike','mike10','mike20', 'mike4']
+    #joinChannel(peters, 'successvisa')
     add(peters, 'successvisa', getFrom=['wizytech','students_tips', 'TodayILearn', 'american'])
