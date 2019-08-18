@@ -192,9 +192,7 @@ def removeUsersAlreadyInChannel(channelUsers, users):
 
 def getUsers(source, channels={}, online=True, getFrom=[], usedChannels=[]):
     users = []
-    print('here')
     if online and not channels:
-        exit('not 1')
         return users
     sourceChannels = []
     if online and getFrom:
@@ -206,7 +204,6 @@ def getUsers(source, channels={}, online=True, getFrom=[], usedChannels=[]):
         sourceChannelsSet = set(channels) - set(usedChannels)
         sourceChannels = list(sourceChannelsSet)
         usedChannels.extend(sourceChannels)
-        exit('not 2')
     if online and sourceChannels:
         exit('not 3')
         users = getAllChannelUsers(source, sourceChannels)
@@ -316,6 +313,6 @@ def joinChannel(peters, channelName):
 
 
 if __name__ == '__main__': 
-    peters = [ '1','10','11','12','13', '5', '7','8','9','akira', 'benjamin', 'chukwu', 'ibe', 'james','john', 'mary','mike','mike10','mike20', 'mike4']
+    peters = [ 'dynasties','1','10','11','12','13', '5', '7','8','9','akira', 'benjamin', 'chukwu', 'ibe', 'james','john', 'mary','mike','mike10','mike20', 'mike4']
     #joinChannel(peters, 'successvisa')
     add(peters, 'successvisa', getFrom=['wizytech','students_tips', 'TodayILearn', 'american'])
