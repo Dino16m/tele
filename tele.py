@@ -192,6 +192,7 @@ def removeUsersAlreadyInChannel(channelUsers, users):
 
 def getUsers(source, channels={}, online=True, getFrom=[], usedChannels=[]):
     users = []
+    print('here')
     if online and not channels:
         exit('not 1')
         return users
