@@ -205,9 +205,7 @@ def getUsers(source, channels={}, online=True, getFrom=[], usedChannels=[]):
         sourceChannels = list(sourceChannelsSet)
         usedChannels.extend(sourceChannels)
     if online and sourceChannels:
-        exit('not 3')
         users = getAllChannelUsers(source, sourceChannels)
-        exit('not 4') 
     if not online:
         if not os.path.isfile(source):
             return users
