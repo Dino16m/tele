@@ -264,14 +264,14 @@ def add(peters, channelInto, online=True, getFrom=[], filepath='users.txt', limi
                 if not users and (peters[len(peters)-1] == peter and count<limit):
                     raise OutOfUserException(count, limit)
                 users = removeSuccess(success, users)
-                users.shuffle()
+                random.shuffle(users)
                 print('successes are '+str(len(success)))
                 print('users after accounting for successes are '+ str(len(users)))
                 print('peter '+peter+' done and dusted adding.')
             removedUsersInChannel = False
         if untappedAddingPotential(len(peters), count, limit, len(users)):
             trials+=1
-            peters.shuffle()
+            random.shuffle(peters)
             continue
     print('adding has ended.')
     report = {'status': True, 'data': {'usersAdded': count, 'channelAddedTo': channelInto}}
