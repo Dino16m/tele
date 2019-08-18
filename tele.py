@@ -94,6 +94,11 @@ def getSuccessFromUpdate(update):
             users.append(u.username)
     return users
 
+printAddStatus(length):
+    if length > 0:
+        print('The count here is '+str(len(update.users)))
+        print('adding users to channel')
+
 def addUsersToChannel(client, users, channel):
     channelEntity = InputPeerChannel(channel.id, channel.access_hash)
     count = 0
@@ -109,8 +114,7 @@ def addUsersToChannel(client, users, channel):
             error = True
         finally:
             if not error:
-                print('here the user count is'+str(len(update.users)))
-                print('adding users to channel')
+                printAddStatus(len(update.users))
                 success.extend(getSuccessFromUpdate(update.users))
             error = False
         if count >= 50:
@@ -235,8 +239,8 @@ def add(peters, channelInto, online=True, getFrom=[], filepath='users.txt', limi
     users = [] #(lambda: getUsers(filepath, online=False), lambda: [])[online is True]()
     removedUsersInChannel = False
     usedChannels = []
-    trials = 1
-    for trial in range(trials):
+    trials = True
+    while trials:
         for peter in peters:
             with TelegramClient(peter, api_id, api_hash) as client:
                 client.send_message('me', 'Hello, myself!')
@@ -269,8 +273,9 @@ def add(peters, channelInto, online=True, getFrom=[], filepath='users.txt', limi
                 print('users after accounting for successes are '+ str(len(users)))
                 print('peter '+peter+' done and dusted adding.')
             removedUsersInChannel = False
+            trials = False
         if untappedAddingPotential(len(peters), count, limit, len(users)):
-            trials+=1
+            trials = True
             random.shuffle(peters)
             continue
     print('adding has ended.')
