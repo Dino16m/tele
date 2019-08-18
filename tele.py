@@ -271,7 +271,7 @@ def add(peters, channelInto, online=True, getFrom=[], filepath='users.txt', limi
             removedUsersInChannel = False
         if untappedAddingPotential(len(peters), count, limit, len(users)):
             trials+=1
-            shuffle(peters)
+            peters.shuffle()
             continue
     print('adding has ended.')
     report = {'status': True, 'data': {'usersAdded': count, 'channelAddedTo': channelInto}}
@@ -301,4 +301,4 @@ def work(peters, getFrom=[], filepath='users.txt'):
 
 if __name__ == '__main__': 
     peters = ['dynasties']
-    add(peters, 'successvisa', ['wizytech','students_tips', 'TodayILearn', 'american'])
+    add(peters, 'successvisa', getFrom=['wizytech','students_tips', 'TodayILearn', 'american'])
