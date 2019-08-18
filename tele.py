@@ -96,7 +96,7 @@ def getSuccessFromUpdate(update):
 
 def printAddStatus(length):
     if length > 0:
-        print('The count here is '+str(len(update.users)))
+        print('The count here is '+str(length))
         print('adding users to channel')
 
 def addUsersToChannel(client, users, channel):
