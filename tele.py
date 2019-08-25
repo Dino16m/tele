@@ -259,6 +259,7 @@ def add(peters, channelInto, online=True, getFrom=[], filepath='users.txt', limi
             with TelegramClient(peter, api_id, api_hash) as client:
                 #client.send_message('me', 'Hello, myself!')
                 channels = getChannels(client)
+                printChannels(channels)  # delete in production
                 tmpUsers = (lambda: users, lambda: getUsers(
                     client, channels, online, getFrom, usedChannels))[online is True]()
                 users = list(set(users + tmpUsers))
@@ -266,7 +267,6 @@ def add(peters, channelInto, online=True, getFrom=[], filepath='users.txt', limi
                       ' the users before are: ' + str(len(users)))
                 if not users and count <= limit:
                     continue
-                printChannels(channels)  # delete in production
                 if channelInto not in channels.keys():
                     continue
                 if channelInto not in channels.keys() and peters[len(peters)-1] == peter:
@@ -333,7 +333,7 @@ def joinChannel(peters, channelName):
 
 
 if __name__ == '__main__':
-    peters = ['12', '13', '5', '7']
-    joinChannel(peters, 'successvisa')  
+    peters = ['dynasties', '12', '13', '5', '7']
+    #joinChannel(peters, 'successvisa')  
     #'james', 'john', 'mary', 'mike', 'mike10', 'mike20', 'mike4'
     add(peters, 'successvisa', getFrom=['TodayILearn', 'american'])
