@@ -334,6 +334,7 @@ def joinChannel(peters, channelName):
 
 if __name__ == '__main__':
     peters = ['dynasties', '12', '13', '5', '7']
+    random.shuffle(peters)
     #joinChannel(peters, 'successvisa')  
     #'james', 'john', 'mary', 'mike', 'mike10', 'mike20', 'mike4'
     add(peters, 'successvisa', getFrom=[])
