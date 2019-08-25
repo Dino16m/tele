@@ -327,13 +327,13 @@ def work(peters, getFrom=[], filepath='users.txt'):
 def joinChannel(peters, channelName):
     for peter in peters:
         with TelegramClient(peter, api_id, api_hash) as client:
-            channelEntity = client.get_entity('t.me'+channelName)
+            channelEntity = client.get_entity('t.me/'+channelName)
             client(JoinChannelRequest(channelEntity))
             print('peter ' + peter + 'joined channel' + channelName)
 
 
 if __name__ == '__main__':
-    peters = ['dynasties', '12', '13', '5', '7']
+    peters = ['12', '13', '5', '7']
     joinChannel(peters, 'successvisa')  
     #'james', 'john', 'mary', 'mike', 'mike10', 'mike20', 'mike4'
     add(peters, 'successvisa', getFrom=['TodayILearn', 'american'])
