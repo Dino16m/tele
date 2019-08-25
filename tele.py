@@ -255,6 +255,7 @@ def add(peters, channelInto, online=True, getFrom=[], filepath='users.txt', limi
     trials = True
     while trials:
         for peter in peters:
+            print('using peter ' + peter)
             with TelegramClient(peter, api_id, api_hash) as client:
                 #client.send_message('me', 'Hello, myself!')
                 channels = getChannels(client)
@@ -332,7 +333,6 @@ def joinChannel(peters, channelName):
 
 
 if __name__ == '__main__':
-    peters = ['dynasties', '1', '10', '11', '12', '13', '5', '7', '8', '9', 'akira',
-              'benjamin', 'chukwu', 'ibe', 'james', 'john', 'mary', 'mike', 'mike10', 'mike20', 'mike4']
-    #joinChannel(peters, 'successvisa')
+    peters = ['12', '13', '5', '7', '8']
+    #joinChannel(peters, 'successvisa')  'james', 'john', 'mary', 'mike', 'mike10', 'mike20', 'mike4'
     add(peters, 'successvisa', getFrom=['TodayILearn', 'american'])
