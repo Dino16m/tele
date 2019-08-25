@@ -336,4 +336,4 @@ if __name__ == '__main__':
     peters = ['dynasties', '12', '13', '5', '7']
     #joinChannel(peters, 'successvisa')  
     #'james', 'john', 'mary', 'mike', 'mike10', 'mike20', 'mike4'
-    add(peters, 'successvisa', getFrom=['TodayILearn', 'american'])
+    add(peters, 'successvisa', getFrom=[])
