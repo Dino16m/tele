@@ -31,7 +31,7 @@ def appendToChannelStore(channelName, users):
 def stashChannelStore():
     global channelStore
     store = channelStore
-    thread = Thread(target=storeUsers, args=(store))
+    thread = Thread(target=storeUsers, args=[store])
     thread.start()
 
 
@@ -142,6 +142,8 @@ def removeUsersAlreadyInChannel(channelUsers, users):
 def getUsers(peters, online=True, getFrom=[]):
     users = []
     storageUsers = getUsersFromStore()
+    usedChannels = []
+    getFromAll = (lambda: False, lambda: True)[getFrom is False]()
     for peter in peters:
         with TelegramClient(peter, api_id, api_hash) as client: 
             print("getting users from " + peter)
@@ -153,7 +155,8 @@ def getUsers(peters, online=True, getFrom=[]):
                 users.extend(user)    
             if not online:
                 return list(set(users))
-            workingChannels = {key: value for key, value in channels.items() if key in getFrom}
+            workingChannels = (lambda: {key: value for key, value in channels.items() if key in getFrom},
+                    lambda: {key: value for key, value in channels.items() if key not in usedChannels})[getFromAll is True]()
             if workingChannels:
                 users.extend(getAllChannelUsers(client, workingChannels))
             if len(users) >= 10000:
