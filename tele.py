@@ -25,8 +25,12 @@ def getChannels(client):
 
 def appendToChannelStore(channelName, users):
     global channelStore
-    if channelName not in channelStore.keys():
-        channelStore[channelName] = users
+    if type(channelName) == str:
+        if channelName not in channelStore.keys():
+            channelStore[channelName] = users
+    if type(channelName) == channel:
+        if channelName.username not in channelStore.keys():
+            channelStore[channelName.username] = users
 
 def stashChannelStore():
     global channelStore
@@ -150,8 +154,6 @@ def getUsers(peters, online=True, getFrom=[]):
         with TelegramClient(peter, api_id, api_hash) as client: 
             channels = getChannels(client)
             for channel in channels:
-                print(type(channel))
-            exit()
             userChunk = (lambda: [storageUsers[key] for key in channels.keys() if key in storageUsers.keys()],
                             lambda: [storageUsers[key] for key in getFrom if key in storageUsers.keys()])[len(getFrom) > 1]()
             getFrom = [key for key in getFrom if key not in storageUsers.keys()]
