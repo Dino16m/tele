@@ -1,5 +1,7 @@
 import os
 import shutil
+import pickle
+import fcntl
 
 def readFromFile(basename, basedir):
     #it is expected that any method that calls this function must have implemented os.path.isfile(filepath)
@@ -29,6 +31,19 @@ def writeToFile(items, basename, basedir):
             file.write('\n')
     file.close()
     return True
+
+def storeUsers(channelDict, filename="store.pkl"):
+    with open(filename, "wb") as file:
+        fcntl.flock(file, fcntl.LOCK_EX)
+        pickle.dump(channelDict, file)
+        fcntl.flock(file, fcntl.LOCK_UN)
+
+def getUsersFromStore(filename="store.pkl"):
+    if os.path.isfile(filename):
+        return
+    with open(filename, "rb") as file:
+        channelDict = pickle.load(file)
+    return channelDict
     
 def singlify(listItems):
     singleSet = set(listItems)
