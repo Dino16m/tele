@@ -141,9 +141,8 @@ def finalResolve(error, count=0, limit=0):
 
 
 def removeUsersAlreadyInChannel(channelUsers, users):
-    unique = set(user.username for user in users if user is not None and user.username is not None) 
-    #- set(user.username for user in channelUsers if user is not None and user.username is not None)
-    exit('not here')
+    unique = set(user.username for user in users if user is not None and user.username is not None) - set(user.username
+     for user in channelUsers if user is not None and user.username is not None)
     return list(user for user in users if user is not None and user.username is not None and user.username in unique)
 
 def getUsers(peters, online=True, getFrom=[]):
@@ -201,6 +200,12 @@ def add(peters, channelInto, online=True, getFrom=[], filepath='users.txt', limi
                     return finalResolve('invalid channel name')
                 if not removedUsersInChannel:
                     channelUsers = getChannelParticipants(client, channels[channelInto])
+                    lo = 0
+                    for user in users:
+                        if type(user) == list:
+                            lo = lo + 1
+                        print(str(lo))
+                        exit('lo above')
                     users = removeUsersAlreadyInChannel(channelUsers, users)
                     print('after removing users from the channel, they are now: '+str(len(users)))
                     removedUsersInChannel = True
