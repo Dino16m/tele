@@ -1,7 +1,7 @@
 import random
 from time import sleep
 #from myexceptions import OutOfUserException
-from singlify import getUsersFromStore, storeUsers, singlify
+from singlify import getUsersFromStore, storeUsers, makeSingle
 from telethon.sync import TelegramClient
 from telethon.tl.functions.channels import InviteToChannelRequest
 from telethon.tl.functions.channels import JoinChannelRequest
@@ -163,9 +163,9 @@ def getUsers(peters, online=True, getFrom=[]):
                 users.extend(getAllChannelUsers(client, workingChannels))
             if len(users) >= 10000:
                 stashChannelStore()
-                return singlify(users)
+                return makeSingle(users)
     stashChannelStore()
-    return singlify(users)        
+    return makeSingle(users)        
 
 
 
