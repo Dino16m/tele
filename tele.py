@@ -157,10 +157,7 @@ def getUsers(peters, online=True, getFrom=[]):
                             lambda: [storageUsers[key] for key in getFrom if key in storageUsers.keys()])[len(getFrom) > 1]()
             getFrom = [key for key in getFrom if key not in storageUsers.keys()]
             for user in userChunk:
-                users.extend(user) 
-            for user in users:
-                if type(user) == list:
-                    print('list found in position 1')   
+                users.extend(user)  
             if not online:
                 return list(set(users))
             workingChannels = (lambda: {key: value for key, value in channels.items() if key in getFrom},
@@ -168,9 +165,6 @@ def getUsers(peters, online=True, getFrom=[]):
             usedChannels.extend(workingChannels.keys())
             if workingChannels:
                 users.extend(getAllChannelUsers(client, workingChannels))
-            for user in users:
-                if type(user) == list:
-                    print('list found in position 2')
             if len(users) >= 10000:
                 stashChannelStore()
                 return makeSingle(users)

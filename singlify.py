@@ -20,7 +20,7 @@ def getUsersFromStore(filename="store.pkl"):
     
 def makeSingle(users):
     usernameSet = set(user.username for user in users if user is not None and user.username is not None)
-    usersList = [users for user in users if user.username in usernameSet]
+    usersList = [user for user in users if user.username in usernameSet]
     return usersList
 
 
