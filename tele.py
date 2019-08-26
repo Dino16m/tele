@@ -44,7 +44,7 @@ def getChannelParticipants(client, channel):
                     users.append(u)
     except Exception as e:
         print(e.args)
-    appendToChannelStore(channel.name, users)
+    appendToChannelStore(channel, users)
     return users
 
 def chunkify(list, chunkSize=100):
