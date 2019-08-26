@@ -141,8 +141,9 @@ def finalResolve(error, count=0, limit=0):
 
 
 def removeUsersAlreadyInChannel(channelUsers, users):
-    unique = set(user.username for user in users if user is not None and user.username is not None) - set(user.username
-     for user in channelUsers if user is not None and user.username is not None)
+    unique = set(user.username for user in users if user is not None and user.username is not None) 
+    #- set(user.username for user in channelUsers if user is not None and user.username is not None)
+    exit('not here')
     return list(user for user in users if user is not None and user.username is not None and user.username in unique)
 
 def getUsers(peters, online=True, getFrom=[]):
