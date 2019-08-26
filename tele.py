@@ -146,7 +146,6 @@ def getUsers(peters, online=True, getFrom=[]):
     getFromAll = (lambda: True, lambda: False)[len(getFrom) > 1]()
     for peter in peters:
         with TelegramClient(peter, api_id, api_hash) as client: 
-            print("getting users from " + peter)
             channels = getChannels(client)
             userChunk = (lambda: [storageUsers[key] for key in channels.keys() if key in storageUsers.keys()],
                             lambda: [storageUsers[key] for key in getFrom if key in storageUsers.keys()])[len(getFrom) > 1]()
@@ -157,7 +156,6 @@ def getUsers(peters, online=True, getFrom=[]):
                 return list(set(users))
             workingChannels = (lambda: {key: value for key, value in channels.items() if key in getFrom},
                     lambda: {key: value for key, value in channels.items() if key not in usedChannels})[getFromAll is True]()
-            print("working channel is  ")
             print(workingChannels)
             usedChannels.extend(workingChannels.keys())
             if workingChannels:
@@ -165,12 +163,8 @@ def getUsers(peters, online=True, getFrom=[]):
                 print(users)
             if len(users) >= 10000:
                 stashChannelStore()
-                print("gotten users")
-                exit()
                 return list(set(users))
     stashChannelStore()
-    print("gotten users")
-    exit()
     return list(set(users))        
 
 
