@@ -1,5 +1,4 @@
 import os
-import shutil
 import pickle
 import fcntl
 
@@ -14,7 +13,9 @@ def getUsersFromStore(filename="store.pkl"):
     if not os.path.isfile(filename):
         return {}
     with open(filename, "rb") as file:
+        fcntl.flock(file, fcntl.LOCK_EX)
         channelDict = pickle.load(file)
+        fcntl.flock(file, fcntl.LOCK_UN)
     return channelDict
     
 
