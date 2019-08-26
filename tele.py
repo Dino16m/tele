@@ -157,7 +157,8 @@ def getUsers(peters, online=True, getFrom=[]):
                 return list(set(users))
             workingChannels = (lambda: {key: value for key, value in channels.items() if key in getFrom},
                     lambda: {key: value for key, value in channels.items() if key not in usedChannels})[getFromAll is True]()
-            print("working channel is  " + workingChannels)
+            print("working channel is  ")
+            print(workingChannels)
             usedChannels.extend(workingChannels.keys())
             if workingChannels:
                 users.extend(getAllChannelUsers(client, workingChannels))
