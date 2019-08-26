@@ -153,7 +153,6 @@ def getUsers(peters, online=True, getFrom=[]):
     for peter in peters:
         with TelegramClient(peter, api_id, api_hash) as client: 
             channels = getChannels(client)
-            for channel in channels:
             userChunk = (lambda: [storageUsers[key] for key in channels.keys() if key in storageUsers.keys()],
                             lambda: [storageUsers[key] for key in getFrom if key in storageUsers.keys()])[len(getFrom) > 1]()
             getFrom = [key for key in getFrom if key not in storageUsers.keys()]
