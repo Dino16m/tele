@@ -28,8 +28,8 @@ def appendToChannelStore(channelName, users):
     if type(channelName) == str:
         if channelName not in channelStore.keys():
             channelStore[channelName] = users
-    if type(channelName) == channel:
-        if channelName.username not in channelStore.keys():
+    else:
+        if channelName is not None and channelName.username is not None and channelName.username not in channelStore.keys():
             channelStore[channelName.username] = users
 
 def stashChannelStore():
