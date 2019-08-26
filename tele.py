@@ -1,7 +1,7 @@
 import random
 from time import sleep
 #from myexceptions import OutOfUserException
-from singlify import getUsersFromStore, storeUsers
+from singlify import getUsersFromStore, storeUsers, singlify
 from telethon.sync import TelegramClient
 from telethon.tl.functions.channels import InviteToChannelRequest
 from telethon.tl.functions.channels import JoinChannelRequest
@@ -122,8 +122,9 @@ def getAllChannelUsers(client, channels):
 
 
 def removeSuccess(success, users):
-    setWithoutSuccess = set(users) - set(success)
-    listWithoutSuccess = list(setWithoutSuccess)
+    setWithoutSuccess = set(user.username for user in users if user is not None and user.username is not None) - set(user.username 
+        for user in success if user is not None and user.username is not None)
+    listWithoutSuccess = [user for user in users if user is not None and user.username in setWithoutSuccess]
     return listWithoutSuccess
 
 
@@ -136,8 +137,9 @@ def finalResolve(error, count=0, limit=0):
 
 
 def removeUsersAlreadyInChannel(channelUsers, users):
-    unique = set(users) - set(channelUsers)
-    return list(unique)
+    unique = set(user.username for user in users if user is not None and user.username is not None) - set(user.username
+     for user in channelUsers if user is not None and user.username is not None)
+    return list(user for user in users if user is not None and user.username is not None and user.username in unique)
 
 def getUsers(peters, online=True, getFrom=[]):
     users = []
@@ -161,9 +163,9 @@ def getUsers(peters, online=True, getFrom=[]):
                 users.extend(getAllChannelUsers(client, workingChannels))
             if len(users) >= 10000:
                 stashChannelStore()
-                return list(set(users))
+                return singlify(users)
     stashChannelStore()
-    return list(set(users))        
+    return singlify(users)        
 
 
 
