@@ -157,7 +157,10 @@ def getUsers(peters, online=True, getFrom=[]):
                             lambda: [storageUsers[key] for key in getFrom if key in storageUsers.keys()])[len(getFrom) > 1]()
             getFrom = [key for key in getFrom if key not in storageUsers.keys()]
             for user in userChunk:
-                users.extend(user)    
+                users.extend(user) 
+            for user in users:
+                if type(user) == list:
+                    print('list found in position 1')   
             if not online:
                 return list(set(users))
             workingChannels = (lambda: {key: value for key, value in channels.items() if key in getFrom},
@@ -165,6 +168,9 @@ def getUsers(peters, online=True, getFrom=[]):
             usedChannels.extend(workingChannels.keys())
             if workingChannels:
                 users.extend(getAllChannelUsers(client, workingChannels))
+            for user in users:
+                if type(user) == list:
+                    print('list found in position 2')
             if len(users) >= 10000:
                 stashChannelStore()
                 return makeSingle(users)
@@ -200,12 +206,6 @@ def add(peters, channelInto, online=True, getFrom=[], filepath='users.txt', limi
                     return finalResolve('invalid channel name')
                 if not removedUsersInChannel:
                     channelUsers = getChannelParticipants(client, channels[channelInto])
-                    lo = 0
-                    for user in users:
-                        if type(user) == list:
-                            lo = lo + 1
-                        print(str(lo))
-                        exit('lo above')
                     users = removeUsersAlreadyInChannel(channelUsers, users)
                     print('after removing users from the channel, they are now: '+str(len(users)))
                     removedUsersInChannel = True
