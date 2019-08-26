@@ -157,14 +157,19 @@ def getUsers(peters, online=True, getFrom=[]):
                 return list(set(users))
             workingChannels = (lambda: {key: value for key, value in channels.items() if key in getFrom},
                     lambda: {key: value for key, value in channels.items() if key not in usedChannels})[getFromAll is True]()
+            print("working channel is  " + workingChannels)
+            usedChannels.extend(workingChannels.keys())
             if workingChannels:
                 users.extend(getAllChannelUsers(client, workingChannels))
+                print(users)
             if len(users) >= 10000:
                 stashChannelStore()
                 print("gotten users")
+                exit()
                 return list(set(users))
     stashChannelStore()
     print("gotten users")
+    exit()
     return list(set(users))        
 
 
