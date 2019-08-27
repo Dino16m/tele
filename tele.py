@@ -71,7 +71,7 @@ def getSuccessFromUpdate(update):
     users = []
     for u in update:
         if u.username is not None:
-            users.append(u.username)
+            users.append(u)
     return users
 
 
