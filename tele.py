@@ -188,7 +188,8 @@ def add(peters, channelInto, online=True, getFrom=[], filepath='users.txt', limi
         for peter in peters:
             print('using peter ' + peter)
             with TelegramClient(peter, api_id, api_hash) as client:
-                #client.send_message('me', 'Hello, myself!')
+                if peter == 'dynasties':
+                    client.send_message('me', 'Hello, myself!')
                 channels = getChannels(client)
                 printChannels(channels)  # delete in production
                 print('for peter '+peter + ' the users before are: ' + str(len(users)))
@@ -216,7 +217,8 @@ def add(peters, channelInto, online=True, getFrom=[], filepath='users.txt', limi
             trials = False
         if untappedAddingPotential(len(peters), count, limit, len(users)):
             trials = True
-            random.shuffle(peters)
+            tick = random.randint(10, 70) * 2
+            sleep(tick)
             continue
     print('adding has ended.')
     report = {'status': True, 'data': {
