@@ -160,7 +160,7 @@ def getUsers(peters, online=True, getFrom=[]):
             for user in userChunk:
                 users.extend(user)  
             if not online:
-                return list(set(users))
+                return makeSingle(users)
             workingChannels = (lambda: {key: value for key, value in channels.items() if key in getFrom},
                     lambda: {key: value for key, value in channels.items() if key not in usedChannels})[getFromAll is True]()
             usedChannels.extend(workingChannels.keys())
