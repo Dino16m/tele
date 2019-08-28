@@ -8,7 +8,7 @@ from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.tl.types import InputPeerChannel
 from vomitonegro import do
 from threading import Thread
-
+import sys
 
 #api_id = 872129
 #api_hash = '1390959115b339a8e20294e3591a8b41'
@@ -90,6 +90,7 @@ def addUsersToChannel(client, users, channel):
     for usersToAdd1 in usersToAdd:
         try:
             update = client(InviteToChannelRequest(channelEntity, usersToAdd1))
+            sleep(5)
         except Exception as e:
             print(e.args)
             error = True
@@ -196,9 +197,8 @@ def add(peters, channelInto, online=True, getFrom=[], filepath='users.txt', limi
                 if not users and count <= limit:
                     return finalResolve('No users to add')
                 if channelInto not in channels.keys():
+                    joinChannel(client, channelInto)
                     continue
-                if channelInto not in channels.keys() and peters[len(peters)-1] == peter:
-                    return finalResolve('invalid channel name')
                 if not removedUsersInChannel:
                     channelUsers = getChannelParticipants(client, channels[channelInto])
                     users = removeUsersAlreadyInChannel(channelUsers, users)
@@ -226,17 +226,22 @@ def add(peters, channelInto, online=True, getFrom=[], filepath='users.txt', limi
     return report
 
 
-def joinChannel(peters, channelName):
+def joinChannel(client, channelName):
+    channelEntity = client.get_entity('t.me/'+channelName)
+    client(JoinChannelRequest(channelEntity))
+
+def massJoinChannel(peters, channelName):
     for peter in peters:
         with TelegramClient(peter, api_id, api_hash) as client:
-            channelEntity = client.get_entity('t.me/'+channelName)
-            client(JoinChannelRequest(channelEntity))
+            joinChannel(client, channelName)
             print('peter ' + peter + 'joined channel' + channelName)
 
+def main():
+    pass
 
 if __name__ == '__main__':
     peters = ['dynasties', '12', '13', '5', '7']
     random.shuffle(peters)
     #joinChannel(peters, 'successvisa')  
     #'james', 'john', 'mary', 'mike', 'mike10', 'mike20', 'mike4'
-    add(peters, 'successvisa', getFrom=[])
+    add(peters, 'successvisa', False, getFrom=[])
