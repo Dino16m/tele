@@ -197,7 +197,6 @@ def add(peters, channelInto, online=True, getFrom=[], filepath='users.txt', limi
                 if not users and count <= limit:
                     return finalResolve('No users to add')
                 if channelInto not in channels.keys():
-                    print(channelInto)
                     joinChannel(client, channelInto)
                     continue
                 if not removedUsersInChannel:
@@ -245,4 +244,4 @@ if __name__ == '__main__':
     random.shuffle(peters)
     #joinChannel(peters, 'successvisa')  
     #'james', 'john', 'mary', 'mike', 'mike10', 'mike20', 'mike4'
-    add(peters, 'idongesitG', getFrom=[])
+    add(peters, 'IdongesitG', getFrom=[])
