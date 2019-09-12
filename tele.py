@@ -51,7 +51,7 @@ def getChannelParticipants(client, channel):
     appendToChannelStore(channel, users)
     return users
 
-def chunkify(list, chunkSize=10):
+def chunkify(list, chunkSize=100):
     chunks = [[]]
     random.shuffle(list)
     count = 0
@@ -93,11 +93,7 @@ def addUsersToChannel(client, users, channel):
     usersToAdd = chunkify(users)
     for usersToAdd1 in usersToAdd:
         try:
-            printUsers(usersToAdd1)
             update = client(InviteToChannelRequest(channelEntity, usersToAdd1))
-            print('============================================updates===========================================================')
-            print(update.stringify())
-            exit()
             sleep(5)
         except Exception as e:
             print(e.args)
