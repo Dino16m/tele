@@ -64,7 +64,9 @@ def chunkify(list, chunkSize=100):
             chunk = chunks[-1]
             count = 0
         chunk.append(list1)
+    random.shuffle(chunks)
     return chunks
+
 def printUsers(chunk):
     for user in chunk:
         print(user.stringify())
@@ -94,7 +96,7 @@ def addUsersToChannel(client, users, channel):
     for usersToAdd1 in usersToAdd:
         try:
             update = client(InviteToChannelRequest(channelEntity, usersToAdd1))
-            sleep(5)
+            #sleep(5)
         except Exception as e:
             print(e.args)
             error = True
