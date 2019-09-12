@@ -197,6 +197,7 @@ def add(peters, channelInto, online=True, getFrom=[], filepath='users.txt', limi
                 if not users and count <= limit:
                     return finalResolve('No users to add')
                 if channelInto not in channels.keys():
+                    print('here')
                     joinChannel(client, channelInto)
                     continue
                 if not removedUsersInChannel:
