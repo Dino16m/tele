@@ -95,7 +95,7 @@ def addUsersToChannel(client, users, channel):
     usersToAdd = chunkify(users)
     for usersToAdd1 in usersToAdd:
         try:
-            update = client(InviteToChannelRequest(channelEntity, usersToAdd1))
+            update = client(InviteToChannelRequest(channelEntity, users))
             #sleep(5)
         except Exception as e:
             print(e.args)
