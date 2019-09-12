@@ -66,7 +66,7 @@ def chunkify(list, chunkSize=100):
     return chunks
 
 def getSuccessFromUpdate(update):
-    print(update.stringify())
+    print(update)
     exit()
     if len(update) < 1:
         return []
