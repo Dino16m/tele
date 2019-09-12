@@ -43,7 +43,7 @@ def getChannelParticipants(client, channel):
     users = []
     try:
         for u in client.get_participants(channel):
-            if not u.bot and not u.scam and not u.restricted:
+            if not u.bot and not u.scam and not u.restricted and not u.min and not u.support and not u.deleted:
                 if u.username is not None:
                     users.append(u)
     except Exception as e:
