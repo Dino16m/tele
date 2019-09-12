@@ -1,6 +1,6 @@
 import random
 from time import sleep
-#from myexceptions import OutOfUserException
+# from myexceptions import OutOfUserException
 from singlify import getUsersFromStore, storeUsers, makeSingle
 from telethon.sync import TelegramClient
 from telethon.tl.functions.channels import InviteToChannelRequest
@@ -66,6 +66,8 @@ def chunkify(list, chunkSize=100):
     return chunks
 
 def getSuccessFromUpdate(update):
+    print(update.stringify())
+    exit()
     if len(update) < 1:
         return []
     users = []
@@ -100,7 +102,7 @@ def addUsersToChannel(client, users, channel):
                 success.extend(getSuccessFromUpdate(update.users))
             error = False
         if count >= 50:
-            tick = random.randint(10, 70) * 2
+            tick = random.randint(10, 30) * 2
             print('adding has been paused for '+str(tick) +
                   ' seconds in line with Telegram guidelines, it will resume immediately the time elapses.')
             sleep(tick)
@@ -217,7 +219,7 @@ def add(peters, channelInto, online=True, getFrom=[], filepath='users.txt', limi
             trials = False
         if untappedAddingPotential(len(peters), count, limit, len(users)):
             trials = True
-            tick = random.randint(10, 70) * 2
+            tick = random.randint(10, 50) * 2
             sleep(tick)
             continue
     print('adding has ended.')
