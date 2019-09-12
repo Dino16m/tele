@@ -112,7 +112,7 @@ def addUsersToChannel(client, users, channel):
             sleep(tick)
             count = 0
             continue
-    count = count + 1
+        count = count + 1
     return success
 
 
@@ -176,7 +176,7 @@ def getUsers(peters, online=True, getFrom=[]):
                 stashChannelStore()
                 return makeSingle(users)
     stashChannelStore()
-    return makeSingle(users)        
+    return makeSingle(users)     
 
 
 
