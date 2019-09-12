@@ -51,7 +51,7 @@ def getChannelParticipants(client, channel):
     appendToChannelStore(channel, users)
     return users
 
-def chunkify(list, chunkSize=100):
+def chunkify(list, chunkSize=10):
     chunks = [[]]
     count = 0
     for list1 in list:
@@ -64,6 +64,9 @@ def chunkify(list, chunkSize=100):
             count = 0
         chunk.append(list1)
     return chunks
+def printUsers(chunk):
+    for user in chunk:
+        print(user.stringify())
 
 def getSuccessFromUpdate(update):
     if len(update) < 1:
@@ -89,7 +92,9 @@ def addUsersToChannel(client, users, channel):
     usersToAdd = chunkify(users)
     for usersToAdd1 in usersToAdd:
         try:
+            printUsers(usersToAdd1)
             update = client(InviteToChannelRequest(channelEntity, usersToAdd1))
+            print('============================================updates===========================================================')
             print(update.stringify())
             exit()
             sleep(5)
