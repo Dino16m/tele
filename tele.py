@@ -240,8 +240,8 @@ def main():
     pass
 
 if __name__ == '__main__':
-    peters = ['dynasties', '12', '13', '5', '7']
+    peters =['goodluck1', 'goodluck2', 'goodluck3', 'goodluck4', 'goodluck']
     random.shuffle(peters)
     #joinChannel(peters, 'successvisa')  
     #'james', 'john', 'mary', 'mike', 'mike10', 'mike20', 'mike4'
-    add(peters, 'successvisa', getFrom=[])
+    #add(peters, 'idongesitG', getFrom=[])
