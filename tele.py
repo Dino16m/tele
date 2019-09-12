@@ -53,6 +53,7 @@ def getChannelParticipants(client, channel):
 
 def chunkify(list, chunkSize=10):
     chunks = [[]]
+    random.shuffle(list)
     count = 0
     for list1 in list:
         if count < chunkSize:
