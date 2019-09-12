@@ -207,7 +207,7 @@ def add(peters, channelInto, online=True, getFrom=[], filepath='users.txt', limi
                     channelUsers = getChannelParticipants(client, channels[channelInto])
                     users = removeUsersAlreadyInChannel(channelUsers, users)
                     print('after removing users from the channel, they are now: '+str(len(users)))
-                    removedUsersInChannel = True
+                    removedUsersInChannel = False
                 if count < limit:
                     success = addUsersToChannel(client, users, channels[channelInto])
                     count = count + len(success)
