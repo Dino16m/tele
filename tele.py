@@ -240,7 +240,7 @@ def main():
     pass
 
 if __name__ == '__main__':
-    peters = ['goodluck1', 'goodluck2', 'goodluck3', 'goodluck4', 'goodluck']
+    peters = ['goodluck1', 'goodluck2', 'goodluck3', 'goodluck4', 'goodluck5']
     random.shuffle(peters)
     #joinChannel(peters, 'successvisa')  
     #'james', 'john', 'mary', 'mike', 'mike10', 'mike20', 'mike4'
