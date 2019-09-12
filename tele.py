@@ -51,7 +51,7 @@ def getChannelParticipants(client, channel):
     appendToChannelStore(channel, users)
     return users
 
-def chunkify(userlist, chunkSize=50):
+def chunkify(userlist, chunkSize=200):
     chunks = [[]]
     random.shuffle(userlist)
     count = 0
@@ -97,7 +97,7 @@ def addUsersToChannel(client, users, channel):
     for usersToAdd1 in usersToAdd:
         try:
             update = client(InviteToChannelRequest(channelEntity, usersToAdd1))
-            #sleep(5)
+            sleep(5)
         except Exception as e:
             print(e.args)
             error = True
@@ -107,7 +107,7 @@ def addUsersToChannel(client, users, channel):
                 success.extend(getSuccessFromUpdate(update.users))
             error = False
         if count >= 50:
-            tick = random.randint(10, 30) * 2
+            tick = random.randint(10, 70) * 2
             print('adding has been paused for '+str(tick) +
                   ' seconds in line with Telegram guidelines, it will resume immediately the time elapses.')
             sleep(tick)
