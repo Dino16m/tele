@@ -66,8 +66,6 @@ def chunkify(list, chunkSize=100):
     return chunks
 
 def getSuccessFromUpdate(update):
-    print(update)
-    exit()
     if len(update) < 1:
         return []
     users = []
@@ -92,6 +90,8 @@ def addUsersToChannel(client, users, channel):
     for usersToAdd1 in usersToAdd:
         try:
             update = client(InviteToChannelRequest(channelEntity, usersToAdd1))
+            print(update.stringify())
+            exit()
             sleep(5)
         except Exception as e:
             print(e.args)
