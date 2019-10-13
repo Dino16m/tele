@@ -1,25 +1,45 @@
-from tele import add, work
-import os
+from tele import add, chunkify
 import random
-peters = ['akira','benjamin', 'chukwu', 'ibe', 'james', 'john', 'kwame', 'mary', 'melik', 'mike', 'mike4', 'mike9','suo' ]
+from threading import Thread
 
-print('Do you want to add users to your database?, this is required if you are using this app for the first time or have joined new channels please answer Yes or No: __ ')
-toAdd = input()
-toAdd = toAdd.lower()
-if toAdd == 'yes' :
-	print('we are adding users to your database, it might take a while')
-	work(peters, 'users.txt')
-print('please type the correct name of the channel you want to add users to, you must be a member of this channel and if possible an admin: ')
-nameToAdd = input()
-nameToAdd.lower()
-random.shuffle(peters)
-if os.path.isfile('users.txt'):
-	print(add(peters, nameToAdd, 'users.txt').stringify())
-else:
-	print('it seems you don\'t have a database of users, we\'ll try to do that for you')
-	print('we are adding users to your database, it might take a while')
-	work(peters, 'users.txt')
-	print('please type the name correct of the channel you want to add users to, this must be a member of this channel and if possible an admin')
-	nameToAdd = input()
-	nameToAdd.lower()
-	add(peters, nameToAdd, 'users.txt')
+apis = [
+	{"key": "764531", "hash": "a41f8549c7dd1341613de3569f9796cb"},
+	{"key": "1124248", "hash": "d08aa4a2326763e69767881e67944fc6"},
+	{"key": "1050270", "hash": "89054ba2d3597bd33a163c6fed13af36"},
+	{"key": "1069414", "hash": "e8a0cec143c3426236a52d0e86fe68fa"},
+	{"key": "872129", "hash": "1390959115b339a8e20294e3591a8b41"}
+]
+standByPeters = ['dynasties', 'dynasty', 'focus', 'focus2', 'prosper', 'prosper2', 'uche', 'uche2', 'uche3', 'uche4']
+
+def init(channelInto, getFrom=[], limit=1000, peters=[]):
+	peters = (lambda: peters, lambda: standByPeters)[peters < 20]()
+	peterChunks = chunkify(peters, int(len(peters)/5))
+	random.shuffle(peterChunks)
+	params = []
+	count = 0
+	for peterChunk in peterChunks:
+		state = {}
+		api = apis[count % 4]
+		count = count + 1
+		state["api_key"] = api['key']
+		state["api_hash"] = api['hash']
+		state["getFrom"] = getFrom
+		state["limit"] = limit
+		state["channelInto"] = channelInto
+		state['peters'] = peterChunk
+		params.append(state)
+	dispatch(params)
+
+
+def dispatch(params):
+	threads = []
+	for x in range(5):
+		threads[x] = Thread(target=add, args=[params[x]])
+	for thread in threads:	
+		thread.start()
+
+def main():
+	init('sucessvisa')
+
+if __name__ == '__main__':
+	main()

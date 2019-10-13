@@ -1,7 +1,7 @@
 from telethon.sync import TelegramClient
 from telethon.tl.functions.channels import InviteToChannelRequest
 from telethon.tl.types import InputPeerChannel
-from tele import printChannels, add
+#from tele import printChannels, add
 import random
 
 api_id = 872129
@@ -40,5 +40,26 @@ def makeScapeGoat(peters):
 		client.send_message('me', 'try')
 		print('update is')
 		print('I am '+ client.get_me().stringify())
-random.shuffle(peters)
-print(add(peters, 'killindemsha', online=False, getFrom=[], filepath='users.txt', limit=1000))
+	random.shuffle(peters)
+	print(add(peters, 'killindemsha', online=False, getFrom=[], filepath='users.txt', limit=1000))
+
+def chunkify(userlist, chunkSize=10):
+    chunks = [[]]
+    random.shuffle(userlist)
+    count = 0
+    for list1 in userlist:
+        if count < chunkSize:
+            chunk = chunks[-1]
+            count = count + 1
+        else:
+            chunks.append([])
+            chunk = chunks[-1]
+            count = 0
+        chunk.append(list1)
+    random.shuffle(chunks)
+    return chunks
+
+lis = [x for x in range(1,1000)]
+ch = chunkify(lis)
+for chunk in ch:
+	print(chunk)

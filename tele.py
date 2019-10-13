@@ -1,6 +1,5 @@
 import random
 from time import sleep
-# from myexceptions import OutOfUserException
 from singlify import getUsersFromStore, storeUsers, makeSingle
 from telethon.sync import TelegramClient
 from telethon.tl.functions.channels import InviteToChannelRequest
@@ -32,11 +31,12 @@ def appendToChannelStore(channelName, users):
         if channelName is not None and channelName.username is not None and channelName.username not in channelStore.keys():
             channelStore[channelName.username] = users
 
-def stashChannelStore():
+def stashChannelStore(storageUsers):
     global channelStore
-    store = channelStore
-    thread = Thread(target=storeUsers, args=[store])
-    thread.start()
+    store = set(channelStore) - set(storageUsers)
+    if store:
+        thread = Thread(target=storeUsers, args=[store])
+        thread.start()
 
 
 def getChannelParticipants(client, channel):
@@ -93,7 +93,6 @@ def addUsersToChannel(client, users, channel):
     error = False
     success = []
     usersToAdd = chunkify(users)
-    print('chunk size is '+str(len(usersToAdd)))
     for usersToAdd1 in usersToAdd:
         try:
             update = client(InviteToChannelRequest(channelEntity, usersToAdd1))
@@ -106,13 +105,8 @@ def addUsersToChannel(client, users, channel):
                 printAddStatus(len(update.users))
                 success.extend(getSuccessFromUpdate(update.users))
             error = False
-        if count >= 50:
-            tick = random.randint(10, 70) * 2
-            print('adding has been paused for '+str(tick) +
-                  ' seconds in line with Telegram guidelines, it will resume immediately the time elapses.')
-            sleep(tick)
-            count = 0
-            continue
+        if count >= 100:
+            break
         count = count + 1
     return success
 
@@ -176,7 +170,7 @@ def getUsers(peters, online=True, getFrom=[]):
             if len(users) >= 10000:
                 stashChannelStore()
                 return makeSingle(users)
-    stashChannelStore()
+    stashChannelStore(storageUsers)
     return makeSingle(users)     
 
 
@@ -185,14 +179,14 @@ def untappedAddingPotential(peterLnt, count, limit, userLnt):
     if count < limit:
         return True
 
-def add(peters, channelInto, online=True, getFrom=[], filepath='users.txt', limit=1000):
+def add(peters, channelInto, online=True, getFrom=[], limit=1000, api_id=api_id, api_hash=api_hash):
     # do()
     count = 0
     print('adding has started')  # delete in production
     users = getUsers(peters, online, getFrom)
     removedUsersInChannel = False
-    trials = True
-    while trials:
+    trials = 0
+    while trials < 100:
         for peter in peters:
             print('using peter ' + peter)
             with TelegramClient(peter, api_id, api_hash) as client:
@@ -221,9 +215,9 @@ def add(peters, channelInto, online=True, getFrom=[], filepath='users.txt', limi
                 print('successes are '+str(len(success)))
                 print('users after accounting for successes are ' + str(len(users)))
                 print('peter '+peter+' done and dusted adding.')
-            trials = False
+            trials = 100
         if untappedAddingPotential(len(peters), count, limit, len(users)):
-            trials = True
+            trials = trials + 1
             tick = random.randint(10, 50) * 2
             sleep(tick)
             continue
@@ -251,4 +245,5 @@ if __name__ == '__main__':
     random.shuffle(peters)
     #joinChannel(peters, 'successvisa')  
     #'james', 'john', 'mary', 'mike', 'mike10', 'mike20', 'mike4'
-    add(peters, 'IdongesitG', getFrom=[])
+    add(peters, 'IdongesitG', getFrom=['Auditchain_Community', 'RapidsOfficial', 'RapidsPoland', 'RapidsBrazil','RapidsRussian','kucoin_Exchanger','RapidsTurkey'])
+
