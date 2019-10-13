@@ -6,8 +6,8 @@ from telethon.sync import TelegramClient
 api_id = 872129
 api_hash = '1390959115b339a8e20294e3591a8b41'
 
-#api_id = 764531
-#api_hash = 'a41f8549c7dd1341613de3569f9796cb'    
+api_id = 764531
+api_hash = 'a41f8549c7dd1341613de3569f9796cb'    
 
 class getCode(object):
 	"""docstring for getCode"""
@@ -41,9 +41,10 @@ def auth(number, session):
 		print('no code was sent for user ' + session + ': ')
 
 def main():
-	session = 'focus2'
-	with TelegramClient(session, api_id, api_hash) as client:
-		client.send_message('me', 'signed in, you are ' + session)
+	sessions = ['dynasties', 'dynasty', 'focus', 'focus2', 'prosper', 'prosper2', 'uche', 'uche2', 'uche3', 'uche4']
+	for session in sessions:
+		with TelegramClient(session, api_id, api_hash) as client:
+			client.send_message('me', 'signed in, you are ' + session)
 
 
 if __name__ == '__main__':
