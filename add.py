@@ -21,12 +21,12 @@ def init(channelInto, getFrom=[], limit=1000, peters=[]):
 		state = {}
 		api = apis[count % 4]
 		count = count + 1
+		state['peters'] = peterChunk
+		state["channelInto"] = channelInto
 		state["api_key"] = api['key']
 		state["api_hash"] = api['hash']
 		state["getFrom"] = getFrom
 		state["limit"] = limit
-		state["channelInto"] = channelInto
-		state['peters'] = peterChunk
 		params.append(state)
 	dispatch(params)
 
