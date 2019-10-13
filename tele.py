@@ -97,7 +97,7 @@ def addUsersToChannel(client, users, channel):
     for usersToAdd1 in usersToAdd:
         try:
             update = client(InviteToChannelRequest(channelEntity, usersToAdd1))
-            sleep(5)
+            sleep(2)
         except Exception as e:
             print(e.args)
             error = True
