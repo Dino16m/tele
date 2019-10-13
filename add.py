@@ -33,7 +33,7 @@ def init(channelInto, getFrom=[], limit=1000, peters=[]):
 
 def dispatch(params):
 	threads = []
-	for x in range(5):
+	for x in range(len(params)):
 		threads.append(Thread(target=add, args=[params[x]]))
 	for thread in threads:	
 		thread.start()
