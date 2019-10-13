@@ -182,6 +182,7 @@ def untappedAddingPotential(peterLnt, count, limit, userLnt):
 def add(peters, channelInto, online=True, getFrom=[], limit=1000, api_id=api_id, api_hash=api_hash):
     # do()
     loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
     count = 0
     print('adding has started')  # delete in production
     users = getUsers(peters, online, getFrom)
