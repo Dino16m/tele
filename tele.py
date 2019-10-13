@@ -32,7 +32,7 @@ def appendToChannelStore(channelName, users):
         if channelName is not None and channelName.username is not None and channelName.username not in channelStore.keys():
             channelStore[channelName.username] = users
 
-def stashChannelStore(storageUsers):
+def stashChannelStore(storageUsers=[]):
     global channelStore
     store = set(channelStore) - set(storageUsers)
     if store:
