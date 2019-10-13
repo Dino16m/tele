@@ -34,7 +34,7 @@ def appendToChannelStore(channelName, users):
 
 def stashChannelStore(storageUsers=[]):
     global channelStore
-    store = set(channelStore) - set(storageUsers)
+    store = list(set(channelStore) - set(storageUsers))
     if store:
         thread = Thread(target=storeUsers, args=[store])
         thread.start()
