@@ -1,3 +1,4 @@
+import asyncio
 import random
 from time import sleep
 from singlify import getUsersFromStore, storeUsers, makeSingle
@@ -180,6 +181,7 @@ def untappedAddingPotential(peterLnt, count, limit, userLnt):
 
 def add(peters, channelInto, online=True, getFrom=[], limit=1000, api_id=api_id, api_hash=api_hash):
     # do()
+    loop = asyncio.new_event_loop()
     count = 0
     print('adding has started')  # delete in production
     users = getUsers(peters, online, getFrom)
@@ -188,7 +190,7 @@ def add(peters, channelInto, online=True, getFrom=[], limit=1000, api_id=api_id,
     while trials < 100:
         for peter in peters:
             print('using peter ' + peter)
-            with TelegramClient(peter, api_id, api_hash) as client:
+            with TelegramClient(peter, api_id, api_hash, loop=loop) as client:
                 if peter == 'dynasties':
                     client.send_message('me', 'Hello, myself!')
                 channels = getChannels(client)
