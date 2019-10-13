@@ -97,7 +97,7 @@ def addUsersToChannel(client, users, channel):
     for usersToAdd1 in usersToAdd:
         try:
             update = client(InviteToChannelRequest(channelEntity, usersToAdd1))
-            sleep(1)
+            sleep(5)
         except Exception as e:
             print(e.args)
             error = True
@@ -155,6 +155,9 @@ def getUsers(peters, online=True, getFrom=[]):
     getFromAll = (lambda: True, lambda: False)[len(getFrom) > 1]()
     for peter in peters:
         with TelegramClient(peter, api_id, api_hash) as client: 
+            if len(getFrom) > 1:
+                for getFrom1 in getFrom:
+                    joinChannel(client, getFrom1)
             channels = getChannels(client)
             userChunk = (lambda: [storageUsers[key] for key in channels.keys() if key in storageUsers.keys()],
                             lambda: [storageUsers[key] for key in getFrom if key in storageUsers.keys()])[len(getFrom) > 1]()
@@ -239,9 +242,9 @@ def massJoinChannel(peters, channelName):
             print('peter ' + peter + 'joined channel' + channelName)
 
 def main():
-    peters = ['dynasties', 'dynasty', 'focus', 'focus2', 'prosper', 'prosper2', 'uche', 'uche2', 'uche3', 'uche4']
+    peters = ['dynasty', 'focus', 'focus2', 'prosper', 'prosper2', 'uche', 'uche2', 'uche3', 'uche4']
     random.shuffle(peters)
-    add(peters, 'hizdyn')
+    add(peters, 'official_webtraders', getFrom=['YggdrashEng', 'DropilCoin', 'ferrum_network', 'svandis_chatroom'])
 
 if __name__ == '__main__':
     main()
