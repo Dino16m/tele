@@ -12,7 +12,7 @@ apis = [
 standByPeters = ['dynasties', 'dynasty', 'focus', 'focus2', 'prosper', 'prosper2', 'uche', 'uche2', 'uche3', 'uche4']
 
 def init(channelInto, getFrom=[], limit=1000, peters=[]):
-	peters = (lambda: peters, lambda: standByPeters)[peters < 20]()
+	peters = (lambda: peters, lambda: standByPeters)[len(peters) < 20]()
 	peterChunks = chunkify(peters, int(len(peters)/5))
 	random.shuffle(peterChunks)
 	params = []
