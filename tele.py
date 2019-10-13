@@ -65,6 +65,7 @@ def chunkify(userlist, chunkSize=200):
             chunk = chunks[-1]
             count = 1
         chunk.append(list1)
+        random.shuffle(chunks)
     return chunks
 
 def printUsers(chunk):
@@ -96,7 +97,7 @@ def addUsersToChannel(client, users, channel):
     for usersToAdd1 in usersToAdd:
         try:
             update = client(InviteToChannelRequest(channelEntity, usersToAdd1))
-            sleep(5)
+            sleep(1)
         except Exception as e:
             print(e.args)
             error = True
@@ -105,7 +106,7 @@ def addUsersToChannel(client, users, channel):
                 printAddStatus(len(update.users))
                 success.extend(getSuccessFromUpdate(update.users))
             error = False
-        if count >= 100:
+        if count >= 1000:
             break
         count = count + 1
     return success
