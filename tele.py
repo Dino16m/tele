@@ -240,12 +240,10 @@ def massJoinChannel(peters, channelName):
             print('peter ' + peter + 'joined channel' + channelName)
 
 def main():
-    pass
+    peters = ['dynasties', 'dynasty', 'focus', 'focus2', 'prosper', 'prosper2', 'uche', 'uche2', 'uche3', 'uche4']
+    add(peters, 'successvisa')
 
 if __name__ == '__main__':
-    peters = ['goodluck1', 'goodluck2', 'goodluck3', 'goodluck4', 'goodluck5']
-    random.shuffle(peters)
-    #joinChannel(peters, 'successvisa')  
-    #'james', 'john', 'mary', 'mike', 'mike10', 'mike20', 'mike4'
-    add(peters, 'IdongesitG', getFrom=['Auditchain_Community', 'RapidsOfficial', 'RapidsPoland', 'RapidsBrazil','RapidsRussian','kucoin_Exchanger','RapidsTurkey'])
+    main()
+    
 
