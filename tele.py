@@ -240,6 +240,7 @@ def massJoinChannel(peters, channelName):
 
 def main():
     peters = ['dynasties', 'dynasty', 'focus', 'focus2', 'prosper', 'prosper2', 'uche', 'uche2', 'uche3', 'uche4']
+    random.shuffle(peters)
     add(peters, 'hizdyn')
 
 if __name__ == '__main__':
