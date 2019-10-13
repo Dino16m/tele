@@ -1,4 +1,3 @@
-import asyncio
 import random
 from time import sleep
 from singlify import getUsersFromStore, storeUsers, makeSingle
@@ -240,7 +239,7 @@ def massJoinChannel(peters, channelName):
 
 def main():
     peters = ['dynasties', 'dynasty', 'focus', 'focus2', 'prosper', 'prosper2', 'uche', 'uche2', 'uche3', 'uche4']
-    add(peters, 'successvisa')
+    add(peters, 'hizdyn')
 
 if __name__ == '__main__':
     main()
