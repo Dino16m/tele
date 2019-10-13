@@ -5,9 +5,9 @@ from telethon.sync import TelegramClient
 from telethon.tl.functions.channels import InviteToChannelRequest
 from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.tl.types import InputPeerChannel
-from vomitonegro import do
+#from vomitonegro import do
 from threading import Thread
-import sys
+
 
 #api_id = 872129
 #api_hash = '1390959115b339a8e20294e3591a8b41'
@@ -62,9 +62,8 @@ def chunkify(userlist, chunkSize=200):
         else:
             chunks.append([])
             chunk = chunks[-1]
-            count = 0
+            count = 1
         chunk.append(list1)
-    random.shuffle(chunks)
     return chunks
 
 def printUsers(chunk):

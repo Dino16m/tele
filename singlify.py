@@ -23,5 +23,4 @@ def makeSingle(users):
     usersList = [user for user in users if user.username in usernameSet]
     return usersList
 
-
-            
+      
