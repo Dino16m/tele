@@ -6,7 +6,7 @@ from telethon.sync import TelegramClient
 api_id = 872129
 api_hash = '1390959115b339a8e20294e3591a8b41'
 
-api_id = 764531
+api_id = '764531'
 api_hash = 'a41f8549c7dd1341613de3569f9796cb'    
 
 class getCode(object):
