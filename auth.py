@@ -41,7 +41,7 @@ def auth(number, session):
 		print('no code was sent for user ' + session + ': ')
 
 def main():
-	sessions = ['dynasties', 'dynasty', 'focus', 'focus2', 'prosper', 'prosper2', 'uche', 'uche2', 'uche3', 'uche4']
+	sessions = ['kolynes', 'kolynz']
 	for session in sessions:
 		with TelegramClient(session, api_id, api_hash) as client:
 			client.send_message('me', 'signed in, you are ' + session)

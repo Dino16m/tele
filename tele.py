@@ -1,19 +1,20 @@
-import random
-from time import sleep
-from singlify import getUsersFromStore, storeUsers, makeSingle
-from telethon.sync import TelegramClient
-from telethon.tl.functions.channels import InviteToChannelRequest
-from telethon.tl.functions.channels import JoinChannelRequest
-from telethon.tl.types import InputPeerChannel
+
+import random 
+from time import sleep 
+from singlify import getUsersFromStore, storeUsers, makeSingle 
+from telethon.sync import TelegramClient 
+from telethon.tl.functions.channels import InviteToChannelRequest 
+from telethon.tl.functions.channels import JoinChannelRequest 
+from telethon.tl.types import InputPeerChannel, InputPeerUser
 #from vomitonegro import do
 from threading import Thread
 
 
-#api_id = 872129
-#api_hash = '1390959115b339a8e20294e3591a8b41'
+api_id = 872129
+api_hash = '1390959115b339a8e20294e3591a8b41'
 
-api_id = 764531
-api_hash = 'a41f8549c7dd1341613de3569f9796cb'
+#api_id = 1050270
+#api_hash = '89054ba2d3597bd33a163c6fed13af36'
 channelStore = {}
 
 def getChannels(client):
@@ -52,7 +53,7 @@ def getChannelParticipants(client, channel):
     appendToChannelStore(channel, users)
     return users
 
-def chunkify(userlist, chunkSize=200):
+def chunkify(userlist, chunkSize=50):
     chunks = [[]]
     random.shuffle(userlist)
     count = 0
@@ -65,12 +66,16 @@ def chunkify(userlist, chunkSize=200):
             chunk = chunks[-1]
             count = 1
         chunk.append(list1)
-        random.shuffle(chunks)
+    random.shuffle(chunks)
     return chunks
 
 def printUsers(chunk):
     for user in chunk:
         print(user.stringify())
+
+def rest(t=2):
+    sleep(t)
+    return True
 
 def getSuccessFromUpdate(update):
     if len(update) < 1:
@@ -93,11 +98,16 @@ def addUsersToChannel(client, users, channel):
     count = 0
     error = False
     success = []
-    usersToAdd = chunkify(users)
+    random.shuffle(users)
+    us = [client.get_input_entity(user.username) for user in users[:50] if user.username is not None and rest() is True]
+    print('here')
+    cheat = [user.username for user in users[:100] if user.username is not None]
+    usersToAdd = chunkify(us, 5)
+    random.shuffle(usersToAdd)
     for usersToAdd1 in usersToAdd:
         try:
-            update = client(InviteToChannelRequest(channelEntity, usersToAdd1))
-            sleep(2)
+            update = client(InviteToChannelRequest(channelEntity, usersToAdd1 ))
+            sleep(3)
         except Exception as e:
             print(e.args)
             error = True
@@ -106,9 +116,12 @@ def addUsersToChannel(client, users, channel):
                 printAddStatus(len(update.users))
                 success.extend(getSuccessFromUpdate(update.users))
             error = False
-        if count >= 1000:
+        
+        if count >= 500:
             break
+        print(str(count))
         count = count + 1
+    sleep(20)
     return success
 
 
@@ -191,6 +204,7 @@ def add(peters, channelInto, online=True, getFrom=[], limit=1000, api_id=api_id,
     removedUsersInChannel = False
     trials = 0
     while trials < 100:
+        random.shuffle(peters)
         for peter in peters:
             print('using peter ' + peter)
             with TelegramClient(peter, api_id, api_hash) as client:
@@ -219,12 +233,12 @@ def add(peters, channelInto, online=True, getFrom=[], limit=1000, api_id=api_id,
                 print('successes are '+str(len(success)))
                 print('users after accounting for successes are ' + str(len(users)))
                 print('peter '+peter+' done and dusted adding.')
-            trials = 100
         if untappedAddingPotential(len(peters), count, limit, len(users)):
             trials = trials + 1
-            tick = random.randint(10, 50) * 2
+            tick = random.randint(30, 50) * 2
             sleep(tick)
             continue
+        trials = 100
     print('adding has ended.')
     report = {'status': True, 'data': {
         'usersAdded': count, 'channelAddedTo': channelInto}}
@@ -232,7 +246,8 @@ def add(peters, channelInto, online=True, getFrom=[], limit=1000, api_id=api_id,
 
 
 def joinChannel(client, channelName):
-    channelEntity = client.get_entity('t.me/'+channelName)
+    return
+    channelEntity = client.get_input_entity('t.me/'+channelName)
     client(JoinChannelRequest(channelEntity))
 
 def massJoinChannel(peters, channelName):
@@ -242,9 +257,12 @@ def massJoinChannel(peters, channelName):
             print('peter ' + peter + 'joined channel' + channelName)
 
 def main():
-    peters = ['dynasty', 'focus', 'focus2', 'prosper', 'prosper2', 'uche', 'uche2', 'uche3', 'uche4']
+    peters = ['dynasty','tracee', 'focus', 'focus2',  'prosper2', 'uche', 'uche2', 'uche3', 'uche4']
+    #peters = ['mick1', 'mick2', 'kelvin', 'damian', 'damian2', 'Benneth', 'Bobby']
+    #peters = ['tracee']
     random.shuffle(peters)
     add(peters, 'official_webtraders', getFrom=['YggdrashEng', 'DropilCoin', 'ferrum_network', 'svandis_chatroom'])
+    #add(peters, 'mmerichi', getFrom=['CryptinosChat'])
 
 if __name__ == '__main__':
     main()
