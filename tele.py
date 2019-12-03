@@ -1,4 +1,4 @@
-
+import asyncio
 import random 
 from time import sleep 
 from singlify import getUsersFromStore, storeUsers, makeSingle 
@@ -99,14 +99,13 @@ def addUsersToChannel(client, users, channel):
     error = False
     success = []
     random.shuffle(users)
-    us = [client.get_input_entity(user.username) for user in users[:50] if user.username is not None and rest() is True]
-    print('here')
-    cheat = [user.username for user in users[:100] if user.username is not None]
-    usersToAdd = chunkify(us, 5)
+    #us = [client.get_input_entity(user.username) for user in users[:50] if user.username is not None and rest() is True]
+    us = [InputPeerUser(user_id=user.id, access_hash=user.access_hash) for user in users if user.username is not None]
+    usersToAdd = chunkify(us, 20)
     random.shuffle(usersToAdd)
     for usersToAdd1 in usersToAdd:
         try:
-            update = client(InviteToChannelRequest(channelEntity, usersToAdd1 ))
+            update = client(InviteToChannelRequest(channelEntity, usersToAdd1))
             sleep(3)
         except Exception as e:
             print(e.args)
@@ -168,13 +167,15 @@ def getUsers(peters, online=True, getFrom=[]):
     getFromAll = (lambda: True, lambda: False)[len(getFrom) > 1]()
     for peter in peters:
         with TelegramClient(peter, api_id, api_hash) as client: 
+            channels = getChannels(client)
             if len(getFrom) > 1:
                 for getFrom1 in getFrom:
-                    joinChannel(client, getFrom1)
+                    if getFrom1 not in channels.keys():
+                        joinChannel(client, getFrom1)
             channels = getChannels(client)
             userChunk = (lambda: [storageUsers[key] for key in channels.keys() if key in storageUsers.keys()],
                             lambda: [storageUsers[key] for key in getFrom if key in storageUsers.keys()])[len(getFrom) > 1]()
-            getFrom = [key for key in getFrom if key not in storageUsers.keys()]
+            getFrom = [value for value in getFrom if value not in storageUsers.keys()]
             for user in userChunk:
                 users.extend(user)  
             if not online:
@@ -197,7 +198,7 @@ def untappedAddingPotential(peterLnt, count, limit, userLnt):
         return True
 
 def add(peters, channelInto, online=True, getFrom=[], limit=1000, api_id=api_id, api_hash=api_hash):
-    # do()
+    loop = asyncio.get_event_loop()
     count = 0
     print('adding has started')  # delete in production
     users = getUsers(peters, online, getFrom)
@@ -207,7 +208,7 @@ def add(peters, channelInto, online=True, getFrom=[], limit=1000, api_id=api_id,
         random.shuffle(peters)
         for peter in peters:
             print('using peter ' + peter)
-            with TelegramClient(peter, api_id, api_hash) as client:
+            with TelegramClient(peter, api_id, api_hash, loop=loop) as client:
                 if peter == 'dynasties':
                     client.send_message('me', 'Hello, myself!')
                 channels = getChannels(client)
@@ -246,7 +247,6 @@ def add(peters, channelInto, online=True, getFrom=[], limit=1000, api_id=api_id,
 
 
 def joinChannel(client, channelName):
-    return
     channelEntity = client.get_input_entity('t.me/'+channelName)
     client(JoinChannelRequest(channelEntity))
 
@@ -257,7 +257,7 @@ def massJoinChannel(peters, channelName):
             print('peter ' + peter + 'joined channel' + channelName)
 
 def main():
-    peters = ['dynasty','tracee', 'focus', 'focus2',  'prosper2', 'uche', 'uche2', 'uche3', 'uche4']
+    peters = ['dynasty', 'tracee', 'focus', 'focus2', 'prosper2', 'uche', 'uche2', 'uche3', 'uche4']
     #peters = ['mick1', 'mick2', 'kelvin', 'damian', 'damian2', 'Benneth', 'Bobby']
     #peters = ['tracee']
     random.shuffle(peters)
