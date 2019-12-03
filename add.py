@@ -39,7 +39,7 @@ def dispatch(params):
 		thread.start()
 
 def main():
-	init('sucessvisa')
+	init('sucessvisa', peters=['uche4', 'Benneth', 'damian', 'damian2', 'dynasties', 'dynasty', 'focus', 'focus2', 'kolynz', 'mick1', 'ocv', 'ocv2', 'prosper2', 'trace', 'uche', 'uche2'])
 
 if __name__ == '__main__':
 	main()

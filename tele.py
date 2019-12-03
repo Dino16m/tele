@@ -257,12 +257,11 @@ def massJoinChannel(peters, channelName):
             print('peter ' + peter + 'joined channel' + channelName)
 
 def main():
-    peters = ['dynasty', 'tracee', 'focus', 'focus2', 'prosper2', 'uche', 'uche2', 'uche3', 'uche4']
+    peters = ['uche4', 'Benneth', 'damian', 'damian2', 'dynasties', 'dynasty', 'focus', 'focus2', 'kolynz', 'mick1', 'ocv', 'ocv2', 'prosper2', 'trace', 'uche', 'uche2']
     #peters = ['mick1', 'mick2', 'kelvin', 'damian', 'damian2', 'Benneth', 'Bobby']
     #peters = ['tracee']
     random.shuffle(peters)
-    add(peters, 'official_webtraders', getFrom=['YggdrashEng', 'DropilCoin', 'ferrum_network', 'svandis_chatroom'])
-    #add(peters, 'mmerichi', getFrom=['CryptinosChat'])
+    add(peters, 'thekudiclan', getFrom=[])
 
 if __name__ == '__main__':
     main()
