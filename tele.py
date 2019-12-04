@@ -261,7 +261,7 @@ def main():
     #peters = ['mick1', 'mick2', 'kelvin', 'damian', 'damian2', 'Benneth', 'Bobby']
     #peters = ['tracee']
     random.shuffle(peters)
-    add(peters, 'thekudiclan', getFrom=['semnigeria'])
+    add(peters, 'thekudiclan', getFrom=['abbapredict', 'girlgroupz', 'creativegrafixx'])
 
 if __name__ == '__main__':
     main()
