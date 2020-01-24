@@ -8,7 +8,7 @@ from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.tl.types import InputPeerChannel, InputPeerUser
 #from vomitonegro import do
 from threading import Thread
-import arparse
+import argparse
 
 api_id = 872129
 api_hash = '1390959115b339a8e20294e3591a8b41'
@@ -257,18 +257,7 @@ def massJoinChannel(peters, channelName):
             print('peter ' + peter + 'joined channel' + channelName)
 
 def main():
-    defaultPeters = ['Benneth', 'damian', 'damian2', 'dynasties', 'dynasty', 'focus', 'focus2', 'kolynz', 'mick1', 'ocv', 'ocv2', 'prosper2', 'trace', 'uche', 'uche2']
-    defaultGetFrom = ['abbapredict', 'girlgroupz', 'creativegrafixx']
-    peters = opeters or defaultPeters.extend(peters)
-    #peters = ['mick1', 'mick2', 'kelvin', 'damian', 'damian2', 'Benneth', 'Bobby']
-    #peters = ['tracee']
-    inGroup = ingroup or 'zether_trading'
-    getFrom = ogetfrom or defaultGetFrom.extend(getfrom)
-    random.shuffle(peters)
-    add(peters, inGroup, getFrom=getFrom)
-
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Add arguments for adding')
+     parser = argparse.ArgumentParser(description='Add arguments for adding')
     parser.add_argument('--ingroup', type=str, help='the group to add to', default=None)
     parser.add_argument('--getfrom', nargs='*', default=[], help='the groups to get users from, it adds to the default')
     parser.add_argument('--ogetfrom', nargs='*', default=[], help='the groups to get users from, it adds the overrides the default')
@@ -280,6 +269,17 @@ if __name__ == '__main__':
     ogetfrom = args.ogetfrom
     peters = args.peters
     opeters = args.opeters
+    defaultPeters = ['Benneth', 'damian', 'damian2', 'dynasties', 'dynasty', 'focus', 'focus2', 'kolynz', 'mick1', 'ocv', 'ocv2', 'prosper2', 'trace', 'uche', 'uche2']
+    defaultGetFrom = ['abbapredict', 'girlgroupz', 'creativegrafixx']
+    peters = opeters or defaultPeters.extend(peters)
+    #peters = ['mick1', 'mick2', 'kelvin', 'damian', 'damian2', 'Benneth', 'Bobby']
+    #peters = ['tracee']
+    inGroup = ingroup or 'zether_trading'
+    getFrom = ogetfrom or defaultGetFrom.extend(getfrom)
+    random.shuffle(peters)
+    add(peters, inGroup, getFrom=getFrom)
+
+if __name__ == '__main__':
     main()
     
 
