@@ -257,7 +257,7 @@ def massJoinChannel(peters, channelName):
             print('peter ' + peter + 'joined channel' + channelName)
 
 def main():
-     parser = argparse.ArgumentParser(description='Add arguments for adding')
+    parser = argparse.ArgumentParser(description='Add arguments for adding')
     parser.add_argument('--ingroup', type=str, help='the group to add to', default=None)
     parser.add_argument('--getfrom', nargs='*', default=[], help='the groups to get users from, it adds to the default')
     parser.add_argument('--ogetfrom', nargs='*', default=[], help='the groups to get users from, it adds the overrides the default')
