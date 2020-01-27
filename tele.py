@@ -73,7 +73,7 @@ def printUsers(chunk):
     for user in chunk:
         print(user.stringify())
 
-def rest(t=3):
+def rest(t=4):
     sleep(t)
     return True
 
