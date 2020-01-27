@@ -1,6 +1,7 @@
 """This is the module for the addition proper."""
 
 from telethon.sync import TelegramClient
+import argparse
 
 
 api_id = 872129
@@ -42,7 +43,10 @@ def auth(number, session):
 
 def main():
 	#'Benneth','damian', 'damian2', 'dynasties', 'dynasty', 'focus', 'focus2', 'kolynz', 'mick1', 'ocv', 'ocv2', 'prosper2', 'trace', 'uche', 'uche2',
-	sessions = ['uche4', 'Benneth', 'damian', 'damian2', 'dynasties', 'dynasty', 'focus', 'focus2', 'kolynz', 'mick1', 'ocv', 'ocv2', 'prosper2', 'trace', 'uche', 'uche2']
+	parser = argparse.ArgumentParser(description='Add arguments for auth')
+	parser.add_argument('--users', nargs='*', help='the group to add to', default=[])
+	args = parser.parse_args()
+	sessions = args.users
 	success = 0
 	for session in sessions:
 		with TelegramClient(session, api_id, api_hash) as client:

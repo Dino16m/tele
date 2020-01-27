@@ -73,7 +73,7 @@ def printUsers(chunk):
     for user in chunk:
         print(user.stringify())
 
-def rest(t=2):
+def rest(t=3):
     sleep(t)
     return True
 
@@ -269,7 +269,9 @@ def main():
     ogetfrom = args.ogetfrom
     peters = args.peters
     opeters = args.opeters
-    defaultPeters = ['Benneth', 'damian', 'damian2', 'dynasties', 'dynasty', 'focus', 'focus2', 'kolynz', 'mick1', 'ocv', 'ocv2', 'trace', 'uche', 'uche2']
+    defaultPeters = ['Benneth', 'damian', 'damian2', 'dynasties', 'dynasty', 
+            'focus', 'focus2', 'kolynz', 'mick1', 'ocv', 'ocv2', 'trace', 
+            'coco1', 'coco2', 'coco3', 'coco4', 'coco5', 'coco6', 'uche', 'uche2']
     defaultGetFrom = []
     peters = opeters or defaultPeters + peters
     #peters = ['mick1', 'mick2', 'kelvin', 'damian', 'damian2', 'Benneth', 'Bobby']
