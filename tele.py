@@ -269,7 +269,7 @@ def main():
     ogetfrom = args.ogetfrom
     peters = args.peters
     opeters = args.opeters
-    defaultPeters = ['Benneth', 'damian', 'damian2', 'dynasties', 'dynasty', 'focus', 'focus2', 'kolynz', 'mick1', 'ocv', 'ocv2', 'prosper2', 'trace', 'uche', 'uche2']
+    defaultPeters = ['Benneth', 'damian', 'damian2', 'dynasties', 'dynasty', 'focus', 'focus2', 'kolynz', 'mick1', 'ocv', 'ocv2', 'trace', 'uche', 'uche2']
     defaultGetFrom = []
     peters = opeters or defaultPeters + peters
     #peters = ['mick1', 'mick2', 'kelvin', 'damian', 'damian2', 'Benneth', 'Bobby']
