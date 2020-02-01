@@ -8,7 +8,9 @@ from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.tl.types import InputPeerChannel, InputPeerUser
 #from vomitonegro import do
 from threading import Thread
+from datetime import datetime, timedelta
 import argparse
+import pytz
 
 api_id = 872129
 api_hash = '1390959115b339a8e20294e3591a8b41'
@@ -92,6 +94,10 @@ def printAddStatus(length):
         print('The count here is ' + str(length))
         print('adding users to channel')
 
+def userWasActive(lastSeen, within=5):  # within is in days
+    daysAgo = pytz.utc.localize(datetime.today()) - timedelta(days=within)
+    lastSeen = pytz.utc.localize(lastSeen)
+    return lastSeen > daysAgo
 
 def addUsersToChannel(client, users, channel):
     channelEntity = InputPeerChannel(channel.id, channel.access_hash)
@@ -99,10 +105,7 @@ def addUsersToChannel(client, users, channel):
     error = False
     success = []
     random.shuffle(users)
-    userToPrint = users[0]
-    print(userToPrint.status)
-    exit()
-    us = [client.get_input_entity(user.username) for user in users[:50] if user.username is not None and rest() is True]
+    us = [client.get_input_entity(user.username) for user in users[:50] if user.username is not None and rest() and userWasActive(user.status.was_online)]
     #us = [InputPeerUser(user_id=user.id, access_hash=user.access_hash) for user in users if user.username is not None]
     usersToAdd = chunkify(us, 20)
     random.shuffle(usersToAdd)
