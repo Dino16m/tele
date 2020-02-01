@@ -96,7 +96,6 @@ def printAddStatus(length):
 
 def userWasActive(lastSeen, within=5):  # within is in days
     daysAgo = pytz.utc.localize(datetime.today()) - timedelta(days=within)
-    lastSeen = pytz.utc.localize(lastSeen)
     return lastSeen > daysAgo
 
 def addUsersToChannel(client, users, channel):
