@@ -99,6 +99,9 @@ def addUsersToChannel(client, users, channel):
     error = False
     success = []
     random.shuffle(users)
+    usersToPrint = users[:2]
+    printUsers(usersToPrint)
+    exit()
     us = [client.get_input_entity(user.username) for user in users[:50] if user.username is not None and rest() is True]
     #us = [InputPeerUser(user_id=user.id, access_hash=user.access_hash) for user in users if user.username is not None]
     usersToAdd = chunkify(us, 20)
