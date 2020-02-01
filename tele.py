@@ -6,6 +6,7 @@ from telethon.sync import TelegramClient
 from telethon.tl.functions.channels import InviteToChannelRequest 
 from telethon.tl.functions.channels import JoinChannelRequest 
 from telethon.tl.types import InputPeerChannel, InputPeerUser
+from telethon import types
 #from vomitonegro import do
 from threading import Thread
 from datetime import datetime, timedelta
@@ -94,7 +95,10 @@ def printAddStatus(length):
         print('The count here is ' + str(length))
         print('adding users to channel')
 
-def userWasActive(lastSeen, within=5):  # within is in days
+def userWasActive(status, within=2):  # within is in days
+    if not isinstance(status, types.UserStatusOffline):
+        return True
+    lastSeen = status.was_online
     daysAgo = pytz.utc.localize(datetime.today()) - timedelta(days=within)
     return lastSeen > daysAgo
 
@@ -104,7 +108,7 @@ def addUsersToChannel(client, users, channel):
     error = False
     success = []
     random.shuffle(users)
-    us = [client.get_input_entity(user.username) for user in users[:50] if user.username is not None and rest() and userWasActive(user.status.was_online)]
+    us = [client.get_input_entity(user.username) for user in users[:50] if user.username is not None and rest() and userWasActive(user.status)]
     #us = [InputPeerUser(user_id=user.id, access_hash=user.access_hash) for user in users if user.username is not None]
     usersToAdd = chunkify(us, 20)
     random.shuffle(usersToAdd)
