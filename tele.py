@@ -179,7 +179,6 @@ def getUsers(peters, online=True, getFrom=[]):
             channels = getChannels(client)
             if len(getFrom) > 1:
                 for getFrom1 in getFrom:
-                    print("getFrom is: ", getFrom1)
                     if getFrom1 not in channels.keys():
                         joinChannel(client, getFrom1)
             channels = getChannels(client)
@@ -211,6 +210,7 @@ def add(peters, channelInto, online=True, getFrom=[], limit=1000, api_id=api_id,
     loop = asyncio.get_event_loop()
     count = 0
     print('adding has started')  # delete in production
+    print(getFrom)
     users = getUsers(peters, online, getFrom)
     removedUsersInChannel = False
     trials = 0
