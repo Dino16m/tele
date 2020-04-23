@@ -173,7 +173,7 @@ def getUsers(peters, online=True, getFrom=[]):
     users = []
     storageUsers = getUsersFromStore()
     usedChannels = []
-    getFromAll = False if getFrom > 1 else True
+    getFromAll = False if len(getFrom) > 1 else True
     for peter in peters:
         with TelegramClient(peter, api_id, api_hash) as client: 
             channels = getChannels(client)
