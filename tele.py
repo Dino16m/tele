@@ -185,6 +185,7 @@ def getUsers(peters, online=True, getFrom=[]):
             userChunk = (lambda: [storageUsers[key] for key in channels.keys() if key in storageUsers.keys()],
                             lambda: [storageUsers[key] for key in getFrom if key in storageUsers.keys()])[len(getFrom) > 0]()
             getFrom = [value for value in getFrom if value not in storageUsers.keys()]
+            print("We have {} chunks".format(len(userChunk)))
             for user in userChunk:
                 users.extend(user)  
             if not online:
