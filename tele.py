@@ -179,6 +179,7 @@ def getUsers(peters, online=True, getFrom=[]):
             channels = getChannels(client)
             if len(getFrom) > 0:
                 for getFrom1 in getFrom:
+                    print("print getfrom is, ", getFrom1)
                     if getFrom1 not in channels.keys():
                         joinChannel(client, getFrom1)
             channels = getChannels(client)
