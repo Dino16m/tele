@@ -174,6 +174,7 @@ def getUsers(peters, online=True, getFrom=[]):
     storageUsers = getUsersFromStore()
     usedChannels = []
     getFromAll = False if len(getFrom) > 1 else True
+    print(getFrom)
     for peter in peters:
         with TelegramClient(peter, api_id, api_hash) as client: 
             channels = getChannels(client)
@@ -210,7 +211,6 @@ def add(peters, channelInto, online=True, getFrom=[], limit=1000, api_id=api_id,
     loop = asyncio.get_event_loop()
     count = 0
     print('adding has started')  # delete in production
-    print(getFrom)
     users = getUsers(peters, online, getFrom)
     removedUsersInChannel = False
     trials = 0
