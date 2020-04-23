@@ -179,13 +179,14 @@ def getUsers(peters, online=True, getFrom=[]):
             channels = getChannels(client)
             if len(getFrom) > 0:
                 for getFrom1 in getFrom:
-                    print("print getfrom is, ", getFrom1)
                     if getFrom1 not in channels.keys():
                         joinChannel(client, getFrom1)
             channels = getChannels(client)
             userChunk = (lambda: [storageUsers[key] for key in channels.keys() if key in storageUsers.keys()],
                             lambda: [storageUsers[key] for key in getFrom if key in storageUsers.keys()])[len(getFrom) > 1]()
             getFrom = [value for value in getFrom if value not in storageUsers.keys()]
+            print("second get from is this, ")
+            print(getFrom)
             for user in userChunk:
                 users.extend(user)  
             if not online:
