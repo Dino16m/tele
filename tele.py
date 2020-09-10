@@ -169,36 +169,32 @@ def removeUsersAlreadyInChannel(channelUsers, users):
      for user in channelUsers if user is not None and user.username is not None)
     return list(user for user in users if user is not None and user.username is not None and user.username in unique)
 
-def getUsers(peters, online=True, getFrom=[]):
+def getUsers(peters, getFrom=[]):
     users = []
-    storageUsers = getUsersFromStore()
+    storedUsers = getUsersFromStore()
+    storedChannels = storedUsers.keys()
     usedChannels = []
-    getFromAll = False if len(getFrom) > 1 else True
     for peter in peters:
         with TelegramClient(peter, api_id, api_hash) as client: 
             channels = getChannels(client)
-            if len(getFrom) > 0:
-                for getFrom1 in getFrom:
-                    if getFrom1 not in channels.keys():
-                        joinChannel(client, getFrom1)
+            if getFrom:
+                for channel in getFrom:
+                    if channel not in channels.keys():
+                        joinChannel(client, channel)
             channels = getChannels(client)
-            userChunk = (lambda: [storageUsers[key] for key in channels.keys() if key in storageUsers.keys()],
-                            lambda: [storageUsers[key] for key in getFrom if key in storageUsers.keys()])[len(getFrom) > 0]()
-            getFrom = [value for value in getFrom if value not in storageUsers.keys()]
-            for user in userChunk:
-                users.extend(user)  
-            if not online:
-                return makeSingle(users)
-            workingChannels = (lambda: {key: value for key, value in channels.items() if key in getFrom},
-                    lambda: {key: value for key, value in channels.items() if key not in usedChannels})[getFromAll is True]()
+            userChunk = ([storedUsers[channel] for channel in getFrom if channel in storedChannels] if getFrom 
+                            else [storedUsers[channel] for channel in channels.keys() if channel in storedChannels])
+            remainingChannels = [channel for channel in getFrom if channel not in storedChannels]
+            for chunk in userChunk:
+                users.extend(chunk)  
+            workingChannels = ({key: value for key, value in channels.items() if key in remainingChannels}  
+                             if remainingChannels else {key: value for key, value in channels.items() if key not in usedChannels})
             usedChannels.extend(workingChannels.keys())
             if workingChannels:
-                print("workingChannels")
                 users.extend(getAllChannelUsers(client, workingChannels))
             if len(users) >= 10000:
-                stashChannelStore()
-                return makeSingle(users)
-    stashChannelStore(storageUsers)
+                break
+    stashChannelStore(storedUsers)
     return makeSingle(users)     
 
 
@@ -207,11 +203,11 @@ def untappedAddingPotential(peterLnt, count, limit, userLnt):
     if count < limit:
         return True
 
-def add(peters, channelInto, online=True, getFrom=[], limit=1000, api_id=api_id, api_hash=api_hash):
+def add(peters, channelInto, getFrom=[], limit=1000, api_id=api_id, api_hash=api_hash):
     loop = asyncio.get_event_loop()
     count = 0
     print('adding has started')  # delete in production
-    users = getUsers(peters, online, getFrom)
+    users = getUsers(peters, getFrom)
     removedUsersInChannel = False
     trials = 0
     while trials < 100:
@@ -233,7 +229,7 @@ def add(peters, channelInto, online=True, getFrom=[], limit=1000, api_id=api_id,
                     channelUsers = getChannelParticipants(client, channels[channelInto])
                     users = removeUsersAlreadyInChannel(channelUsers, users)
                     print('after removing users from the channel, they are now: '+str(len(users)))
-                    removedUsersInChannel = False
+                    removedUsersInChannel = True
                 if count < limit:
                     success = addUsersToChannel(client, users, channels[channelInto])
                     count = count + len(success)
