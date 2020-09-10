@@ -185,14 +185,11 @@ def getUsers(peters, getFrom=[]):
             userChunk = ([storedUsers[channel] for channel in getFrom if channel in storedChannels] if getFrom 
                             else [storedUsers[channel] for channel in channels.keys() if channel in storedChannels])
             remainingChannels = [channel for channel in getFrom if channel not in storedChannels]
-            print("remaining channel is ", remainingChannels)
-            print("user chunk length is", len(userChunk))
             for chunk in userChunk:
                 users.extend(chunk)  
             workingChannels = ({key: value for key, value in channels.items() if key in remainingChannels}  
                              if getFrom else {key: value for key, value in channels.items() if key not in usedChannels})
             usedChannels.extend(workingChannels.keys())
-            print("length of working channels ", len(workingChannels))
             if workingChannels:
                 users.extend(getAllChannelUsers(client, workingChannels))
             if len(users) >= 10000:
