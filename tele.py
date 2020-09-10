@@ -192,6 +192,7 @@ def getUsers(peters, getFrom=[]):
             workingChannels = ({key: value for key, value in channels.items() if key in remainingChannels}  
                              if remainingChannels else {key: value for key, value in channels.items() if key not in usedChannels})
             usedChannels.extend(workingChannels.keys())
+            print("length of working channels ", len(workingChannels))
             if workingChannels:
                 users.extend(getAllChannelUsers(client, workingChannels))
             if len(users) >= 10000:
