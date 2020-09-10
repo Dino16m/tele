@@ -190,7 +190,7 @@ def getUsers(peters, getFrom=[]):
             for chunk in userChunk:
                 users.extend(chunk)  
             workingChannels = ({key: value for key, value in channels.items() if key in remainingChannels}  
-                             if remainingChannels else {key: value for key, value in channels.items() if key not in usedChannels})
+                             if getFrom else {key: value for key, value in channels.items() if key not in usedChannels})
             usedChannels.extend(workingChannels.keys())
             print("length of working channels ", len(workingChannels))
             if workingChannels:
