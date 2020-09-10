@@ -185,6 +185,7 @@ def getUsers(peters, getFrom=[]):
             userChunk = ([storedUsers[channel] for channel in getFrom if channel in storedChannels] if getFrom 
                             else [storedUsers[channel] for channel in channels.keys() if channel in storedChannels])
             remainingChannels = [channel for channel in getFrom if channel not in storedChannels]
+            print("remaining channel is ", remainingChannels)
             for chunk in userChunk:
                 users.extend(chunk)  
             workingChannels = ({key: value for key, value in channels.items() if key in remainingChannels}  
