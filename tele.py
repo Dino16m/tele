@@ -108,14 +108,14 @@ def addUsersToChannel(client, users, channel):
     error = False
     success = []
     random.shuffle(users)
-    us = [client.get_input_entity(user.username) for user in users[:50] if user.username is not None and rest() and userWasActive(user.status)]
+    us = [client.get_input_entity(user.username) for user in users[:50] if user.username is not None and rest(1) and userWasActive(user.status)]
     #us = [InputPeerUser(user_id=user.id, access_hash=user.access_hash) for user in users if user.username is not None]
     usersToAdd = chunkify(us, 20)
     random.shuffle(usersToAdd)
     for usersToAdd1 in usersToAdd:
         try:
             update = client(InviteToChannelRequest(channelEntity, usersToAdd1))
-            sleep(3)
+            sleep(1)
         except Exception as e:
             print(e.args)
             error = True
@@ -129,7 +129,7 @@ def addUsersToChannel(client, users, channel):
             break
         print(str(count))
         count = count + 1
-    sleep(20)
+    sleep(10)
     return success
 
 
@@ -175,12 +175,16 @@ def getUsers(peters, getFrom=[]):
     storedChannels = storedUsers.keys()
     usedChannels = []
     for peter in peters:
+        print('get users as: ', peter)
         with TelegramClient(peter, api_id, api_hash) as client: 
             channels = getChannels(client)
             if getFrom:
                 for channel in getFrom:
                     if channel not in channels.keys():
-                        joinChannel(client, channel)
+                        try:
+                           joinChannel(client, channel)
+                        except Exception as e:
+                           print(e)
             channels = getChannels(client)
             userChunk = ([storedUsers[channel] for channel in getFrom if channel in storedChannels] if getFrom 
                             else [storedUsers[channel] for channel in channels.keys() if channel in storedChannels])
@@ -218,7 +222,6 @@ def add(peters, channelInto, getFrom=[], limit=1000, api_id=api_id, api_hash=api
                 if peter == 'dynasties':
                     client.send_message('me', 'Hello, myself!')
                 channels = getChannels(client)
-                printChannels(channels)  # delete in production
                 print('for peter '+peter + ' the users before are: ' + str(len(users)))
                 if not users and count <= limit:
                     return finalResolve('No users to add')
@@ -242,7 +245,7 @@ def add(peters, channelInto, getFrom=[], limit=1000, api_id=api_id, api_hash=api
                 print('peter '+peter+' done and dusted adding.')
         if untappedAddingPotential(len(peters), count, limit, len(users)):
             trials = trials + 1
-            tick = random.randint(30, 50) * 2
+            tick = random.randint(10, 20) * 2
             sleep(tick)
             continue
         trials = 100
@@ -275,9 +278,9 @@ def main():
     ogetfrom = args.ogetfrom
     peters = args.peters
     opeters = args.opeters
-    defaultPeters = ['Benneth', 'damian', 
-            'focus', 'focus2', 'kolynz', 'mick1', 'ocv', 'ocv2', 'trace', 
-            'coco1', 'coco2', 'coco4', 'coco5', 'coco6', 'uche', 'uche2']
+    defaultPeters = ['Benneth', 
+            'focus', 'focus2', 'kolynus', 'mick1', 'ocv', 'ocv2'
+            , 'coco2', 'coco5', 'uche']
     defaultGetFrom = []
     peters = opeters or defaultPeters + peters
     #peters = ['mick1', 'mick2', 'kelvin', 'damian', 'damian2', 'Benneth', 'Bobby']
@@ -290,4 +293,5 @@ def main():
 if __name__ == '__main__':
     main()
     
+
 
